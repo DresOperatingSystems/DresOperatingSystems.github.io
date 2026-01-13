@@ -36,10 +36,12 @@ a:hover {
     margin: 0;
     display: flex;
     border-bottom: 1px solid #808080;
+    flex-wrap: wrap; /* Allow tabs to wrap on small screens */
 }
 
 .tabs li {
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .tabs label {
@@ -92,9 +94,11 @@ a:hover {
     color: #000000;
 }
 
-.tabs #tab1:checked ~ .content > section:nth-child(1),
-.tabs #tab2:checked ~ .content > section:nth-child(2),
-.tabs #tab3:checked ~ .content > section:nth-child(3) {
+.tabs #tab0:checked ~ .content > section:nth-child(1),
+.tabs #tab1:checked ~ .content > section:nth-child(2),
+.tabs #tab2:checked ~ .content > section:nth-child(3),
+.tabs #tab3:checked ~ .content > section:nth-child(4),
+.tabs #tab4:checked ~ .content > section:nth-child(5) {
     display: block;
 }
 
