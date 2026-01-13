@@ -59,6 +59,15 @@ a:hover {
     padding: 20px;
     border: 1px solid #808080;
     background: #000000;
+    overflow-wrap: break-word; /* Fix overflow */
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.tabs .content > section ul li {
+    overflow-wrap: break-word; /* Ensure list items wrap */
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .tabs input:checked + label {
@@ -94,4 +103,21 @@ footer {
     text-align: center;
     margin-top: 40px;
     color: #808080;
+}
+
+/* Mobile fixes: Stack tabs vertically on small screens */
+@media (max-width: 600px) {
+    .tabs ul {
+        flex-direction: column;
+    }
+    .tabs li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .tabs label {
+        text-align: center;
+    }
+    .tabs .content > section {
+        padding: 10px; /* Reduce padding for mobile */
+    }
 }
