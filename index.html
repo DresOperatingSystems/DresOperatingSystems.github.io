@@ -30,27 +30,75 @@
                     <h2>DresSecureComms</h2>
                     <p>Our first original app: DresSecureComms is a FOSS all-in-one secure communication app by DresOS.</p>
                     <h3>Features:</h3>
-                    <ul>
-                        <li>Encrypted SMS: Messages are AES-encrypted before sending.</li>
-                        <li>VOIP/Normal Calling: Choose between Linphone SIP VOIP or standard calls. Configure SIP in settings. (VOIP is due to have its own full suite coming in future updates)</li>
-                        <li>Secure Contacts: Stored in encrypted database, synced from device locally.</li>
-                        <li>Geo Spoofer: User-configurable mock location (set lat/long in settings; enable in dev options).</li>
-                        <li>App Lock: Biometric/PIN protection.</li>
-                        <li>Full Encryption: Database uses SQLCipher.</li>
-                        <li>SS7 Protection: This feature isn't fully part of this app version but it's due to come in a future update so use VOIP to avoid telecom vulnerabilities for now.</li>
-                        <li>Tracker Detection: Scan files/photos/links/URLs with VirusTotal API (add your API key in settings; scans for viruses/loggers).</li>
-                        <li>IP Spoofing: Basic VPN setup provided; also due its own full suite soon so you can tweak it how you like.</li>
-                        <li>Spoofed Headers: Custom HTTP headers, no cookies.</li>
-                        <li>Metadata Wipe: It only removes geo data for now will have more tags to remove in a future update.</li>
-                    </ul>
+                    <div class="feature-list">
+                        <div class="feature">
+                            <h4>Encrypted SMS</h4>
+                            <p>Messages are AES-encrypted before sending.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>VOIP/Normal Calling</h4>
+                            <p>Choose between Linphone SIP VOIP or standard calls. Configure SIP in settings. (VOIP is due to have its own full suite coming in future updates)</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Secure Contacts</h4>
+                            <p>Stored in encrypted database, synced from device locally.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Geo Spoofer</h4>
+                            <p>User-configurable mock location (set lat/long in settings; enable in dev options).</p>
+                        </div>
+                        <div class="feature">
+                            <h4>App Lock</h4>
+                            <p>Biometric/PIN protection.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Full Encryption</h4>
+                            <p>Database uses SQLCipher.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>SS7 Protection</h4>
+                            <p>This feature isn't fully part of this app version but it's due to come in a future update so use VOIP to avoid telecom vulnerabilities for now.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Tracker Detection</h4>
+                            <p>Scan files/photos/links/URLs with VirusTotal API (add your API key in settings; scans for viruses/loggers).</p>
+                        </div>
+                        <div class="feature">
+                            <h4>IP Spoofing</h4>
+                            <p>Basic VPN setup provided; also due its own full suite soon so you can tweak it how you like.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Spoofed Headers</h4>
+                            <p>Custom HTTP headers, no cookies.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Metadata Wipe</h4>
+                            <p>It only removes geo data for now will have more tags to remove in a future update.</p>
+                        </div>
+                    </div>
                     <h3>How it works:</h3>
-                    <ul>
-                        <li>All data is encrypted at rest and in transit where possible.</li>
-                        <li>For encrypted SMS, share keys with recipients manually (will be adding in an automatic way in a future update).</li>
-                        <li>VOIP uses Linphone SDK; register with a SIP provider.</li>
-                        <li>To detect SS7, app prefers secure channels but cannot detect attacks directly (USE VOIP FOR NOW).</li>
-                        <li>Internet permission is system-managed and only has access to the features that require internet VOIP, VirusTotal, etc. (sms, normal phone calls etc stay untouched)</li>
-                    </ul>
+                    <div class="feature-list">
+                        <div class="feature">
+                            <h4>All data</h4>
+                            <p>Encrypted at rest and in transit where possible.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>For encrypted SMS</h4>
+                            <p>Share keys with recipients manually (will be adding in an automatic way in a future update).</p>
+                        </div>
+                        <div class="feature">
+                            <h4>VOIP</h4>
+                            <p>Uses Linphone SDK; register with a SIP provider.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>To detect SS7</h4>
+                            <p>App prefers secure channels but cannot detect attacks directly (USE VOIP FOR NOW).</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Internet permission</h4>
+                            <p>System-managed and only has access to the features that require internet VOIP, VirusTotal, etc. (sms, normal phone calls etc stay untouched)</p>
+                        </div>
+                    </div>
                     <p>Coming early 2026 with a store on F-Droid.</p>
                 </section>
                 <section>

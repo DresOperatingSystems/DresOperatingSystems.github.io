@@ -7,12 +7,14 @@ body {
     line-height: 1.5;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     color: #00FF00;
+    margin-top: 0;
 }
 
 p, ul {
     color: #808080; /* Grey accents for body text */
+    margin: 0 0 1em 0;
 }
 
 a {
@@ -59,15 +61,30 @@ a:hover {
     padding: 20px;
     border: 1px solid #808080;
     background: #000000;
-    overflow-wrap: break-word; /* Fix overflow */
-    word-wrap: break-word;
-    hyphens: auto;
+    overflow-wrap: anywhere; /* Aggressive wrap without hyphens */
+    word-break: break-word;
 }
 
 .tabs .content > section ul li {
-    overflow-wrap: break-word; /* Ensure list items wrap */
-    word-wrap: break-word;
-    hyphens: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.feature-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature {
+    margin-bottom: 1.5em;
+}
+
+.feature h4 {
+    margin-bottom: 0.5em;
+}
+
+.feature p {
+    margin: 0;
 }
 
 .tabs input:checked + label {
@@ -119,5 +136,8 @@ footer {
     }
     .tabs .content > section {
         padding: 10px; /* Reduce padding for mobile */
+    }
+    .feature {
+        margin-bottom: 1em;
     }
 }
