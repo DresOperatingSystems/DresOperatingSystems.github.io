@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DresOS - Open Source Security Organization</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <h1>Hello, we are DresOS</h1>
+        <p>An open source organization that focuses on the security and development of Android devices, Linux machines, apps, and bots. Please check the tabs for different things we are working on.</p>
+
+        <!-- Tabs Section -->
+        <div class="tabs">
+            <input type="radio" id="tab1" name="tab-control" checked>
+            <input type="radio" id="tab2" name="tab-control">
+            <input type="radio" id="tab3" name="tab-control">
+            <ul>
+                <li title="DresOS Distro"><label for="tab1" role="button">DresOS: The Defensive Security Distro</label></li>
+                <li title="DresSecureComms"><label for="tab2" role="button">DresSecureComms</label></li>
+                <li title="GitHub Projects"><label for="tab3" role="button">GitHub Projects</label></li>
+            </ul>
+            <div class="content">
+                <section>
+                    <h2>DresOS: The Defensive Security Distro</h2>
+                    <p>Coming late 2026. For more updates and secure apps for Android, join our ecosystem on Telegram: <a href="https://t.me/+gqKa5SMoAls4NWY0">Join Here</a>.</p>
+                </section>
+                <section>
+                    <h2>DresSecureComms</h2>
+                    <p>Our first original app: DresSecureComms is a FOSS all-in-one secure communication app by DresOS.</p>
+                    <h3>Features:</h3>
+                    <ul>
+                        <li>Encrypted SMS: Messages are AES-encrypted before sending.</li>
+                        <li>VOIP/Normal Calling: Choose between Linphone SIP VOIP or standard calls. Configure SIP in settings. (VOIP is due to have its own full suite coming in future updates)</li>
+                        <li>Secure Contacts: Stored in encrypted database, synced from device locally.</li>
+                        <li>Geo Spoofer: User-configurable mock location (set lat/long in settings; enable in dev options).</li>
+                        <li>App Lock: Biometric/PIN protection.</li>
+                        <li>Full Encryption: Database uses SQLCipher.</li>
+                        <li>SS7 Protection: This feature isn't fully part of this app version but it's due to come in a future update so use VOIP to avoid telecom vulnerabilities for now.</li>
+                        <li>Tracker Detection: Scan files/photos/links/URLs with VirusTotal API (add your API key in settings; scans for viruses/loggers).</li>
+                        <li>IP Spoofing: Basic VPN setup provided; also due its own full suite soon so you can tweak it how you like.</li>
+                        <li>Spoofed Headers: Custom HTTP headers, no cookies.</li>
+                        <li>Metadata Wipe: It only removes geo data for now will have more tags to remove in a future update.</li>
+                    </ul>
+                    <h3>How it works:</h3>
+                    <ul>
+                        <li>All data is encrypted at rest and in transit where possible.</li>
+                        <li>For encrypted SMS, share keys with recipients manually (will be adding in an automatic way in a future update).</li>
+                        <li>VOIP uses Linphone SDK; register with a SIP provider.</li>
+                        <li>To detect SS7, app prefers secure channels but cannot detect attacks directly (USE VOIP FOR NOW).</li>
+                        <li>Internet permission is system-managed and only has access to the features that require internet VOIP, VirusTotal, etc. (sms, normal phone calls etc stay untouched)</li>
+                    </ul>
+                    <p>Coming early 2026 with a store on F-Droid.</p>
+                </section>
+                <section>
+                    <h2>GitHub Projects</h2>
+                    <h3>Kali Linux Stuff</h3>
+                    <p>These projects focus on installing, configuring, updating, and securing Kali Linux environments, including mobile adaptations like NetHunter for rootless devices and private network setups.</p>
+                    <ul>
+                        <li><a href="https://github.com/DresOperatingSystems/KALI-NETHUNTER-2024">KALI-NETHUNTER-2024</a>: ROOTED NETHUNTER FOR ROOTLESS DEVICES. (Language: None listed, Stars: 6)</li>
+                        <li><a href="https://github.com/DresOperatingSystems/kali-linux-private-network-setup">kali-linux-private-network-setup</a>: Follow my steps on how to set up Kali Linux to be a private and encrypted server for your homes/businesses network. (Language: Shell, Stars: 1)</li>
+                        <li><a href="https://github.com/DresOperatingSystems/Kali-update">Kali-update</a>: (No description). (Language: Python, Stars: 1)</li>
+                    </ul>
+                    <h3>Bots</h3>
+                    <p>These are Telegram-based bots for group moderation, anti-raid protection, privacy management, AI integration, web search, and command scripting, all with a security focus.</p>
+                    <ul>
+                        <li><a href="https://github.com/DresOperatingSystems/DresAntiRaidBot">DresAntiRaidBot</a>: A Telegram bot to protect your group chats and channels from spam, bot raids, and suspected alt accounts. (Language: Python, Stars: 1)</li>
+                        <li><a href="https://github.com/DresOperatingSystems/Dresguardian">Dresguardian</a>: Privacy First Telegram Group Management Bot with Built in AI and DuckDuckGo Web Search. (Language: Python, Stars: 1)</li>
+                        <li><a href="https://github.com/DresOperatingSystems/Dresmodbot">Dresmodbot</a>: A security hardened telegram group moderation bot that has a web search feature leveraging DuckDuckGo search engine. (Language: Python, Stars: 1)</li>
+                        <li><a href="https://github.com/DresOperatingSystems/TELEGRAM_CMD_AI_BOT_SCRIPT_">TELEGRAM_CMD_AI_BOT_SCRIPT_</a>: An extensive command script for your telegram bots. (Language: Python, Stars: 2)</li>
+                    </ul>
+                    <h3>Other Projects</h3>
+                    <p>Miscellaneous tools for Android recovery, Docker-like mobile environments, and operational security guides.</p>
+                    <ul>
+                        <li><a href="https://github.com/DresOperatingSystems/Motorola-moto-g32-recovery-mode">Motorola-moto-g32-recovery-mode</a>: (No description). (Language: None listed, Stars: 1)</li>
+                        <li><a href="https://github.com/DresOperatingSystems/Docker-android">Docker-android</a>: This is my way of Getting a docker like env on mobile hope this helps for advanced devs only. (Language: None listed, Stars: 3)</li>
+                        <li><a href="https://github.com/DresOperatingSystems/Android-opsec">Android-opsec</a>: Here I will show and explain a quick and easy method for better on device cyber sec for android devices. (Language: None listed, Stars: 2)</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <button onclick="window.location.href='mailto:DresOS@duck.com'">Email Support</button>
+            <button onclick="window.location.href='https://t.me/DresOSTeams'">Telegram Support</button>
+            <button onclick="window.location.href='https://i.delta.chat/#DD2D2DC0297546BE768E070A073ADBB3D36F79BD&i=d6JFGvrRAV_tfRkvwNaA3PMB&s=HbdzFGYsvI66JOxfh_QmYQE5&a=evwsmlihf%40arcanechat.me&n=DresOS+Buisness+Account'">Arcane/Delta Chat Support</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright © 2026 DresOS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

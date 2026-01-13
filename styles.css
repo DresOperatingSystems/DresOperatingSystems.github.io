@@ -1,0 +1,97 @@
+body {
+    background-color: #000000;
+    color: #00FF00;
+    font-family: monospace;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    color: #00FF00;
+}
+
+p, ul {
+    color: #808080; /* Grey accents for body text */
+}
+
+a {
+    color: #00FF00;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.tabs {
+    margin: 20px 0;
+}
+
+.tabs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    border-bottom: 1px solid #808080;
+}
+
+.tabs li {
+    margin-right: 10px;
+}
+
+.tabs label {
+    cursor: pointer;
+    padding: 10px;
+    background: #000000;
+    color: #00FF00;
+    border: 1px solid #808080;
+    border-bottom: none;
+    display: block;
+}
+
+.tabs input[type="radio"] {
+    display: none;
+}
+
+.tabs .content > section {
+    display: none;
+    padding: 20px;
+    border: 1px solid #808080;
+    background: #000000;
+}
+
+.tabs input:checked + label {
+    background: #808080;
+    color: #000000;
+}
+
+.tabs #tab1:checked ~ .content > section:nth-child(1),
+.tabs #tab2:checked ~ .content > section:nth-child(2),
+.tabs #tab3:checked ~ .content > section:nth-child(3) {
+    display: block;
+}
+
+.contact {
+    margin: 20px 0;
+}
+
+.contact button {
+    background: #000000;
+    color: #00FF00;
+    border: 1px solid #808080;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    background: #808080;
+    color: #000000;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #808080;
+}
