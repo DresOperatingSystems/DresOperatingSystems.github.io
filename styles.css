@@ -94,13 +94,13 @@ a:hover {
     color: #000000;
 }
 
-#tab0:checked ~ .content > section:nth-child(1),
-#tab1:checked ~ .content > section:nth-child(2),
-#tab2:checked ~ .content > section:nth-child(3),
-#tab3:checked ~ .content > section:nth-child(4),
-#tab4:checked ~ .content > section:nth-child(5),
-#tab5:checked ~ .content > section:nth-child(6),
-#tab6:checked ~ .content > section:nth-child(7) {
+.tabs input#tab0:checked ~ .content section:nth-of-type(1),
+.tabs input#tab1:checked ~ .content section:nth-of-type(2),
+.tabs input#tab2:checked ~ .content section:nth-of-type(3),
+.tabs input#tab3:checked ~ .content section:nth-of-type(4),
+.tabs input#tab4:checked ~ .content section:nth-of-type(5),
+.tabs input#tab5:checked ~ .content section:nth-of-type(6),
+.tabs input#tab6:checked ~ .content section:nth-of-type(7) {
     display: block;
 }
 
