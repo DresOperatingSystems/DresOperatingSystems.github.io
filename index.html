@@ -9,7 +9,7 @@
 <body>
     <main>
         <h1>Hello, we are DresOS</h1>
-        <p>An open source organization that focuses on the security and development of Android devices, Linux machines, apps, and bots. Please check the tabs for different things we are working on.</p>
+        <p>An open source organization that focuses on the security and development of Android devices, Linux machines, apps, and bots. <strong>Click the green tab titles to switch between sections.</strong></p>
 
         <!-- Tabs Section -->
         <div class="tabs">
@@ -19,20 +19,25 @@
             <input type="radio" id="tab3" name="tab-control">
             <input type="radio" id="tab4" name="tab-control">
             <input type="radio" id="tab5" name="tab-control">
+            <input type="radio" id="tab6" name="tab-control">
             <ul>
                 <li title="Welcome"><label for="tab0" role="button">Welcome</label></li>
                 <li title="DresEcoVerse"><label for="tab1" role="button">DresEcoVerse</label></li>
                 <li title="DresOS Distro"><label for="tab2" role="button">DresOS: The Defensive Security Distro</label></li>
                 <li title="DresSecureComms"><label for="tab3" role="button">DresSecureComms</label></li>
-                <li title="GitHub Projects"><label for="tab4" role="button">GitHub Projects</label></li>
-                <li title="Terms of Service"><label for="tab5" role="button">Terms of Service</label></li>
+                <li title="DresOS Android"><label for="tab4" role="button">DresOS Android</label></li>
+                <li title="GitHub Projects"><label for="tab5" role="button">GitHub Projects</label></li>
+                <li title="Terms of Service"><label for="tab6" role="button">Terms of Service</label></li>
             </ul>
             <div class="content">
+                <!-- Welcome -->
                 <section>
                     <h2>Welcome to DresOS</h2>
                     <p>Hello, we are DresOS, an open source organization dedicated to enhancing security and development for Android devices, Linux machines, apps, and bots. Our mission is to provide privacy-focused, secure and innovative tools that empower users in a digital world.</p>
-                    <p>To explore our work, check out the tabs: Learn about our ecosystem in DresEcoVerse, get updates on our upcoming Linux distro, discover our secure communication app in DresSecureComms, and browse our GitHub projects for more open source contributions.</p>
+                    <p>To explore our work, click the green tab titles above.</p>
                 </section>
+
+                <!-- DresEcoVerse -->
                 <section>
                     <h2>DresEcoVerse</h2>
                     <p>The DresEcoVerse is our central Telegram group where we release updates related to our organization. Join us at <a href="https://t.me/+gqKa5SMoAls4NWY0">The DresEcoVerse</a> (with over 288 members as of early 2026) to stay connected. It features dedicated channels for various topics, including:</p>
@@ -52,85 +57,78 @@
                     <h3>DresGeoSpoofing</h3>
                     <p>DresGeoSpoofing is a fork and improvement of an excellent location spoofing app originally created by Matias and his team. This was a learning exercise for us as we want to begin developing our own original apps and it was our way of saying thank you to Matias for actually inspiring us to work on apps. We left all credits to Matias and his team in the app so others can discover their outstanding open source work.</p>
                 </section>
+
+                <!-- DresOS Distro -->
                 <section>
                     <h2>DresOS: The Defensive Security Distro</h2>
                     <p>Coming late 2026. Check out the DresEcoVerse for more updates on it.</p>
                 </section>
+
+                <!-- DresSecureComms -->
                 <section>
                     <h2>DresSecureComms</h2>
-                    <p>Our first original app: DresSecureComms is a FOSS all-in-one secure communication app by DresOS.</p>
-                    <h3>Features:</h3>
-                    <div class="feature-list">
-                        <div class="feature">
-                            <h4>Encrypted SMS</h4>
-                            <p>Messages are AES-encrypted before sending.</p>
-                        </div>
-                        <div class="feature">
-                            <h4>VOIP/Normal Calling</h4>
-                            <p>Choose between Linphone SIP VOIP or standard calls. Configure SIP in settings. (VOIP is due to have its own full suite coming in future updates)</p>
-                        </div>
-                        <div class="feature">
-                            <h4>Secure Contacts</h4>
-                            <p>Stored in encrypted database, synced from device locally.</p>
-                        </div>
-                        <div class="feature">
-                            <h4>Geo Spoofer</h4>
-                            <p>User-configurable mock location (set lat/long in settings; enable in dev options).</p>
-                        </div>
-                        <div class="feature">
-                            <h4>App Lock</h4>
-                            <p>Biometric/PIN protection.</p>
-                        </div>
-                        <div class="feature">
-                            <h4>Full Encryption</h4>
-                            <p>Database uses SQLCipher.</p>
-                        </div>
-                        <div class="feature">
-                            <h4>SS7 Protection</h4>
-                            <p>This feature isn't fully part of this app version but it's due to come in a future update so use VOIP to avoid telecom vulnerabilities for now.</p>
-                        </div>
-                        <div class="feature">
-                            <h4>Tracker Detection</h4>
-                            <p>Scan files/photos/links/URLs with VirusTotal API (add your API key in settings; scans for viruses/loggers).</p>
-                        </div>
-                        <div class="feature">
-                            <h4>IP Spoofing</h4>
-                            <p>Basic VPN setup provided; also due its own full suite soon so you can tweak it how you like.</p>
-                        </div>
-                        <div class="feature">
-                            <h4>Spoofed Headers</h4>
-                            <p>Custom HTTP headers, no cookies.</p>
-                        </div>
-                        <div class="feature">
-                            <h4>Metadata Wipe</h4>
-                            <p>It only removes geo data for now will have more tags to remove in a future update.</p>
-                        </div>
-                    </div>
-                    <h3>How it works:</h3>
-                    <div class="feature-list">
-                        <div class="feature">
-                            <h4>All data</h4>
-                            <p>Encrypted at rest and in transit where possible.</p>
-                        </div>
-                        <div class="feature">
-                            <h4>For encrypted SMS</h4>
-                            <p>Share keys with recipients manually (will be adding in an automatic way in a future update).</p>
-                        </div>
-                        <div class="feature">
-                            <h4>VOIP</h4>
-                            <p>Uses Linphone SDK; register with a SIP provider.</p>
-                        </div>
-                        <div class="feature">
-                            <h4>To detect SS7</h4>
-                            <p>App prefers secure channels but cannot detect attacks directly (USE VOIP FOR NOW).</p>
-                        </div>
-                        <div class="feature">
-                            <h4>Internet permission</h4>
-                            <p>System-managed and only has access to the features that require internet VOIP, VirusTotal, etc. (sms, normal phone calls etc stay untouched)</p>
-                        </div>
-                    </div>
-                    <p>Coming early 2026 with a store on F-Droid.</p>
+                    <p>Coming late 2026. Check out the DresEcoVerse for more updates on it.</p>
                 </section>
+
+                <!-- DresOS Android -->
+                <section>
+                    <h2>DresOS Android</h2>
+                    <p>We originally wanted to release our own system but due to all these new cyber laws and the pressure Google is putting on firmware swaps we just could never release it. So we hope our project can bring our organisation back to its core values and release an idea we had once in a different light.</p>
+                    <p><strong>To build your very own DresOS Android system, follow the steps below:</strong></p>
+                    <ol>
+                        <li>First, follow this project of ours: <a href="https://github.com/DresOperatingSystems/Android-Degoogling">Android-Degoogling</a> a complete rooted de-Googling guide using TWRP + Magisk + MicroG + Fossify apps that completely removes all Google services, tracking, and telemetry from your phone while keeping full functionality.</li>
+                        <li>Then pair it with this project of ours: <a href="https://github.com/DresOperatingSystems/Android-opsec">Android-opsec</a> this adds extra on-device cyber security hardening, root-level privacy modules (Magisk + LSPosed), system-wide tracker blocking, and advanced opsec techniques so even advanced threats can't touch your data.</li>
+                        <li>And finally for the 3rd step install the applications below:</li>
+                    </ol>
+
+                    <h3>Recommended Apps</h3>
+                    <ul>
+                        <li><strong>ZArchiver Pro</strong> Powerful file manager with strong AES encryption for your files and backups. <a href="https://github.com/Nekorey/Zarchiver-Pro/releases/download/Zarchiver/zarchiver-pro.apk">Download APK</a></li>
+                        <li><strong>IYPS</strong> Encrypted password vault with biometric lock and zero-knowledge storage. <a href="https://github.com/StellarSand/IYPS/releases/download/v1.5.6/IYPS_v1.5.6.apk">Download APK</a></li>
+                        <li><strong>RedReader</strong> Secure, modded Reddit client with no ads or tracking. <a href="https://github.com/QuantumBadger/RedReader/releases/download/v1.25.1/RedReader-v1.25.1.apk">Download APK</a></li>
+                        <li><strong>URL Check</strong> Scans any link for IP loggers, malware, and phishing before you open it. <a href="https://github.com/TrianguloY/URLCheck/releases/download/v3.4.1/URLCheck-3.4.1.apk">Download APK</a></li>
+                        <li><strong>OONI Probe</strong> Network measurement tool that detects censorship and surveillance. <a href="https://f-droid.org/repo/org.openobservatory.ooniprobe_274.apk">Download from F-Droid</a></li>
+                        <li><strong>iVizblePro</strong> All-in-one proxy, firewall, and VPN with Tor support. <a href="https://f-droid.org/repo/pan.alexander.tordnscrypt.stable_26603.apk">Download from F-Droid</a></li>
+                        <li><strong>Metrolist</strong> Privacy-focused, modded YouTube Music client. <a href="https://github.com/MetrolistGroup/Metrolist/releases/download/v13.3.0/Metrolist.apk">Download APK</a></li>
+                        <li><strong>Arcane Chat</strong> Fully decentralized, end-to-end encrypted messaging. <a href="https://github.com/ArcaneChat/android/releases/download/v2.43.0/ArcaneChat-foss-arm64-v8a-2.43.0.apk">Download APK</a></li>
+                    </ul>
+
+                    <p><strong>How our system protects you:</strong> This setup completely removes Google services and tracking, uses root-level privacy modules (Magisk + LSPosed), replaces every app with FOSS alternatives, blocks ads/trackers at the system level, encrypts all your files and passwords, scans every link, and routes traffic through Tor or custom VPNs. You get full control with zero big-tech surveillance.</p>
+
+                    <p>If you followed each step correctly you should now have a fully private system built by DresOS.</p>
+
+                    <p><strong>Open Source License for this DresOS Android guide:</strong> This entire section and guide is licensed under the MIT License. You are free to use, modify, copy, and distribute it (including commercially) as long as you keep the copyright notice and license text below.</p>
+
+                    <pre style="background:#111; padding:15px; color:#00FF00; font-size:0.9em; overflow:auto;">
+MIT License
+
+Copyright (c) 2026 DresOS
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+                    </pre>
+
+                    <p><strong>Want to give us credit or just use our wallpapers?</strong></p>
+                    <img src="https://image2url.com/r2/default/images/1774015449216-7f721514-09fa-4d07-b667-85e1609ca231.png" alt="DresOS Wallpaper 1" style="max-width:100%; border:1px solid #808080; margin:10px 0;">
+                    <img src="https://image2url.com/r2/default/images/1774015505618-c44dd474-4d07-409d-93f2-b2e060270ffa.png" alt="DresOS Wallpaper 2" style="max-width:100%; border:1px solid #808080; margin:10px 0;">
+                </section>
+
+                <!-- GitHub Projects -->
                 <section>
                     <h2>GitHub Projects</h2>
                     <h3>Kali Linux Stuff</h3>
@@ -154,13 +152,18 @@
                         <li><a href="https://github.com/DresOperatingSystems/Android-opsec">Android-opsec</a>: Here we will show and explain a quick and easy method for better on device cyber sec for android devices. (Language: None listed, Stars: 2)</li>
                         <li><a href="https://github.com/DresOperatingSystems/DresTermuxAI">DresTermuxAI</a>: Just an AI assistant for termux users with coding assistant abilities. (Language: Python, Stars: 1)</li>
                         <li><a href="https://github.com/DresOperatingSystems/About-DresOS">About-DresOS</a>: Config files for our GitHub profile. (Language: None listed, Stars: 0)</li>
+                        <li><a href="https://github.com/DresOperatingSystems/Android-Degoogling">Android-Degoogling</a>: A Complete Rooted DeGoogling Guide (TWRP + Magisk + MicroG + Fossify) – Turns any stock Android phone into a fully private, FOSS-only device with zero Google tracking. (Language: None listed, Stars: 1)</li>
                     </ul>
                 </section>
+
+                <!-- Terms of Service -->
                 <section>
                     <h2>Terms of Service (ToS)</h2>
                     <p>By engaging with DresOS, our projects, services, or communities (including the DresEcoVerse), you agree to the following terms:</p>
                     <ul>
                         <li>We abide by the rules and guidelines of all platforms we use (e.g., Telegram, GitHub, F-Droid). Users must also comply with these platform-specific rules when interacting with our content or communities.</li>
+                        <li>Anyone who uses our DresOS Android section must follow the rules and terms of each individual application listed.</li>
+                        <li>If our DresOS Android guide is used unethically or illegally, we take zero responsibility and are not liable for any consequences.</li>
                         <li>Zero tolerance for racism, violence, and Child Sexual Abuse Material (CSAM). Any such behavior will result in immediate removal and potential reporting to authorities.</li>
                         <li>Treat our bots with care and respect. Do not abuse, spam, or misuse them in any way.</li>
                         <li>For feedback or bug reports, please contact us directly via the options in the Contact Us section.</li>
