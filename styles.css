@@ -13,7 +13,7 @@ h1, h2, h3, h4 {
 }
 
 p, ul {
-    color: #808080; /* Grey accents for body text */
+    color: #808080;
     margin: 0 0 1em 0;
 }
 
@@ -36,7 +36,7 @@ a:hover {
     margin: 0;
     display: flex;
     border-bottom: 1px solid #808080;
-    flex-wrap: wrap; /* Allow tabs to wrap on small screens */
+    flex-wrap: wrap;
 }
 
 .tabs li {
@@ -63,7 +63,7 @@ a:hover {
     padding: 20px;
     border: 1px solid #808080;
     background: #000000;
-    overflow-wrap: anywhere; /* Aggressive wrap without hyphens */
+    overflow-wrap: anywhere;
     word-break: break-word;
 }
 
@@ -94,12 +94,13 @@ a:hover {
     color: #000000;
 }
 
-.tabs #tab0:checked ~ .content > section:nth-child(1),
-.tabs #tab1:checked ~ .content > section:nth-child(2),
-.tabs #tab2:checked ~ .content > section:nth-child(3),
-.tabs #tab3:checked ~ .content > section:nth-child(4),
-.tabs #tab4:checked ~ .content > section:nth-child(5),
-.tabs #tab5:checked ~ .content > section:nth-child(6) {
+.tabs #tab0:checked \~ .content > section:nth-child(1),
+.tabs #tab1:checked \~ .content > section:nth-child(2),
+.tabs #tab2:checked \~ .content > section:nth-child(3),
+.tabs #tab3:checked \~ .content > section:nth-child(4),
+.tabs #tab4:checked \~ .content > section:nth-child(5),
+.tabs #tab5:checked \~ .content > section:nth-child(6),
+.tabs #tab6:checked \~ .content > section:nth-child(7) {
     display: block;
 }
 
@@ -125,4 +126,4 @@ footer {
     text-align: center;
     margin-top: 40px;
     color: #808080;
-}
+        }
