@@ -94,13 +94,13 @@ a:hover {
     color: #000000;
 }
 
-.tabs #tab0:checked ~ .content > section:nth-child(8),
-.tabs #tab1:checked ~ .content > section:nth-child(9),
-.tabs #tab2:checked ~ .content > section:nth-child(10),
-.tabs #tab3:checked ~ .content > section:nth-child(11),
-.tabs #tab4:checked ~ .content > section:nth-child(12),
-.tabs #tab5:checked ~ .content > section:nth-child(13),
-.tabs #tab6:checked ~ .content > section:nth-child(14) {
+#tab0:checked ~ .content > section:nth-child(1),
+#tab1:checked ~ .content > section:nth-child(2),
+#tab2:checked ~ .content > section:nth-child(3),
+#tab3:checked ~ .content > section:nth-child(4),
+#tab4:checked ~ .content > section:nth-child(5),
+#tab5:checked ~ .content > section:nth-child(6),
+#tab6:checked ~ .content > section:nth-child(7) {
     display: block;
 }
 
@@ -126,4 +126,4 @@ footer {
     text-align: center;
     margin-top: 40px;
     color: #808080;
-    }
+}
