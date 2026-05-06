@@ -1,21 +1,69 @@
-MIT License
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+CC BY-NC-SA 4.0
 
-Copyright (c) 2026 DresOS
+Copyright (C) 2026 DresOperatingSystems
+https://dresoperatingsystems.github.io
+https://github.com/DresOperatingSystems
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+=========================================================================
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+You are free to:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+  Share - copy and redistribute the material in any medium or format
+  Adapt - remix, transform, and build upon the material
+
+Under the following terms:
+
+  Attribution - You must give appropriate credit to DresOS, provide a
+  link to this license, and indicate if changes were made. You may do
+  so in any reasonable manner, but not in any way that suggests DresOS
+  endorses you or your use.
+
+  NonCommercial - You may not use the material for commercial purposes.
+  This includes selling it, placing advertisements on it, using it in
+  a paid product, repackaging it for revenue, or any other form of
+  commercial exploitation.
+
+  ShareAlike - If you remix, transform, or build upon the material,
+  you must distribute your version under the same CC BY-NC-SA 4.0
+  license. You cannot apply additional restrictions that prevent others
+  from doing what this license permits.
+
+  No additional restrictions - You may not apply legal terms or
+  technological measures that legally restrict others from doing
+  anything the license permits.
+
+=========================================================================
+
+SCOPE OF THIS LICENSE
+
+This license covers the DresOS website source code and design
+hosted at https://dresoperatingsystems.github.io and
+https://github.com/DresOperatingSystems/DresOperatingSystems.github.io
+
+This license does NOT cover:
+
+  The DresOS name, logo, and branding. These remain the exclusive
+  property of DresOperatingSystems and may not be used without
+  explicit written permission regardless of this license.
+
+  The DresOS Android Defensive Security System guide and documentation,
+  which is licensed separately under CC BY-NC-SA 4.0 in its own
+  repository.
+
+  The DresOS Magisk Modules, which are licensed separately under
+  GPL-3.0 in their own repository.
+
+=========================================================================
+
+Why CC BY-NC-SA 4.0:
+
+This license ensures that the website and its design remain open and
+freely available to the community, while preventing anyone from taking
+it and using it commercially or distributing it without crediting DresOS.
+Anyone who builds on it must release their version under the same terms,
+keeping the work open for everyone permanently.
+
+=========================================================================
+
+Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
