@@ -4,6 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DresOS - An Open Source Security Organization</title>
+
+  <!-- Open Graph - controls the preview card on Telegram, Discord, Twitter, WhatsApp etc -->
+  <meta property="og:title" content="DresOS - Open Source Security Organization" />
+  <meta property="og:description" content="Privacy focused Android builds, Magisk modules, Kali Linux tools, and bots. Build your own deGoogled Android system with the DresOS guide." />
+  <meta property="og:image" content="https://image2url.com/r2/default/images/1774015449216-7f721514-09fa-4d07-b667-85e1609ca231.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://dresoperatingsystems.github.io" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DresOS" />
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DresOS - Open Source Security Organization" />
+  <meta name="twitter:description" content="Privacy focused Android builds, Magisk modules, Kali Linux tools, and bots. Build your own deGoogled Android system." />
+  <meta name="twitter:image" content="https://image2url.com/r2/default/images/1774015449216-7f721514-09fa-4d07-b667-85e1609ca231.png" />
+
+  <!-- General meta -->
+  <meta name="description" content="DresOS is an open source security organization. We build privacy focused Android systems, Magisk modules, Kali Linux tools, and Telegram bots." />
+  <meta name="keywords" content="DresOS, Android privacy, deGoogled Android, Magisk modules, AOSmium WebView, InviZible Pro, open source security, Linux" />
+  <meta name="author" content="DresOperatingSystems" />
+  <meta name="theme-color" content="#00e676" />
+
   <style>
     :root {
       --bg: #0a0a0f;
@@ -16,8 +39,7 @@
       --text: #e0e0e0;
       --text-dim: #888;
       --text-faint: #444;
-      --accent: #00e676;
-      --red: #ff4f4f;
+      --yellow: #ffc800;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,17 +53,13 @@
       min-height: 100vh;
     }
 
-    /* Subtle scanline overlay */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,0.03) 2px,
-        rgba(0,0,0,0.03) 4px
+        0deg, transparent, transparent 2px,
+        rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
       );
       pointer-events: none;
       z-index: 9999;
@@ -67,7 +85,6 @@
       letter-spacing: 0.04em;
     }
 
-    /* Tab nav */
     nav {
       background: var(--surface2);
       border-bottom: 1px solid var(--border);
@@ -92,13 +109,8 @@
     }
 
     nav button:hover { color: var(--green); }
+    nav button.active { color: var(--green); border-bottom-color: var(--green); }
 
-    nav button.active {
-      color: var(--green);
-      border-bottom-color: var(--green);
-    }
-
-    /* Main content */
     main {
       max-width: 900px;
       margin: 0 auto;
@@ -128,7 +140,12 @@
 
     p { margin-bottom: 14px; color: var(--text); }
 
-    a { color: var(--green); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a {
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
     a:hover { border-bottom-color: var(--green); }
 
     ul, ol {
@@ -143,23 +160,12 @@
       color: var(--text);
     }
 
-    ul li::before {
-      content: '>';
-      position: absolute;
-      left: 0;
-      color: var(--green);
-    }
+    ul li::before { content: '>'; position: absolute; left: 0; color: var(--green); }
 
     ol { counter-reset: list; }
     ol li { counter-increment: list; }
-    ol li::before {
-      content: counter(list) '.';
-      position: absolute;
-      left: 0;
-      color: var(--green);
-    }
+    ol li::before { content: counter(list) '.'; position: absolute; left: 0; color: var(--green); }
 
-    /* Cards */
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -168,12 +174,9 @@
       margin: 16px 0;
       transition: border-color 0.2s;
     }
-
     .card:hover { border-color: var(--green); }
-
     .card h3 { margin-top: 0; }
 
-    /* Badge */
     .badge {
       display: inline-block;
       background: var(--green-glow);
@@ -187,11 +190,12 @@
       margin-left: 10px;
       vertical-align: middle;
     }
+    .badge.soon {
+      background: rgba(255,200,0,0.1);
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
 
-    .badge.new { background: rgba(0,230,118,0.2); }
-    .badge.soon { background: rgba(255,200,0,0.1); border-color: #ffc800; color: #ffc800; }
-
-    /* Module grid */
     .module-grid { display: grid; gap: 16px; margin-top: 16px; }
 
     .module-card {
@@ -202,34 +206,14 @@
       border-radius: 0 4px 4px 0;
       transition: background 0.15s;
     }
-
     .module-card:hover { background: var(--surface2); }
-
-    .module-card .module-id {
-      color: var(--green);
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
-      margin-bottom: 6px;
-    }
-
-    .module-card .module-name {
-      font-size: 1rem;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-
-    .module-card .module-desc {
-      color: var(--text-dim);
-      font-size: 0.83rem;
-      line-height: 1.5;
-    }
-
+    .module-card .module-id { color: var(--green); font-size: 0.82rem; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .module-card .module-name { font-size: 1rem; color: var(--text); margin-bottom: 6px; }
+    .module-card .module-desc { color: var(--text-dim); font-size: 0.83rem; line-height: 1.5; }
     .module-card .module-links { margin-top: 12px; }
     .module-card .module-links a { font-size: 0.8rem; margin-right: 16px; }
 
-    /* App list */
     .app-list { display: grid; gap: 12px; margin-top: 12px; }
-
     .app-item {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -239,12 +223,10 @@
       flex-direction: column;
       gap: 4px;
     }
-
     .app-item strong { color: var(--text); font-size: 0.9rem; }
     .app-item span { color: var(--text-dim); font-size: 0.82rem; }
     .app-item a { font-size: 0.8rem; align-self: flex-start; margin-top: 4px; }
 
-    /* Info blocks */
     .info-block {
       background: var(--surface2);
       border: 1px solid var(--border);
@@ -256,7 +238,6 @@
       color: var(--text-dim);
     }
 
-    /* Links row */
     .link-row {
       display: flex;
       flex-wrap: wrap;
@@ -278,13 +259,10 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       text-decoration: none;
-      cursor: pointer;
       transition: background 0.15s;
     }
-
     .link-btn:hover { background: var(--green-glow); border-bottom-color: transparent; }
 
-    /* Code block */
     pre {
       background: var(--surface2);
       border: 1px solid var(--border);
@@ -297,14 +275,12 @@
       white-space: pre-wrap;
     }
 
-    /* Wallpapers */
     .wallpaper-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
       margin: 16px 0;
     }
-
     .wallpaper-grid a img {
       width: 100%;
       border-radius: 4px;
@@ -312,10 +288,28 @@
       display: block;
       transition: border-color 0.2s;
     }
-
     .wallpaper-grid a:hover img { border-color: var(--green); border-bottom-color: var(--green); }
 
-    /* Footer */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .contact-card:hover { border-color: var(--green); }
+    .contact-card .contact-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+    .contact-card .contact-label { color: var(--green); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+    .contact-card .contact-value { color: var(--text-dim); font-size: 0.83rem; margin-bottom: 14px; }
+
     footer {
       text-align: center;
       border-top: 1px solid var(--border);
@@ -324,16 +318,15 @@
       font-size: 0.78rem;
       letter-spacing: 0.04em;
     }
-
     footer a { color: var(--text-dim); }
 
-    /* Responsive */
     @media (max-width: 600px) {
       header { padding: 20px 16px; }
       main { padding: 24px 16px 60px; }
       nav { padding: 0 8px; }
       nav button { padding: 12px 10px; font-size: 0.7rem; }
       .wallpaper-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -352,6 +345,7 @@
   <button onclick="switchTab('android', this)">DresOS Android</button>
   <button onclick="switchTab('projects', this)">GitHub Projects</button>
   <button onclick="switchTab('tos', this)">Terms of Service</button>
+  <button onclick="switchTab('contact', this)">Contact</button>
 </nav>
 
 <main>
@@ -366,7 +360,7 @@
     <div class="card">
       <ul>
         <li><strong>DresOS Android</strong> - A complete guide to build your own fully private, deGoogled Android system using TWRP, Magisk, microG, and the full DresOS defensive app suite</li>
-        <li><strong>Magisk Modules</strong> - Automating the DresOS Android build process one module at a time. First module released: AOSmium WebView</li>
+        <li><strong>Magisk Modules</strong> - Automating the DresOS Android build process one module at a time. First module live: AOSmium WebView v1.0.0</li>
         <li><strong>DresOS: The Defensive Security Distro</strong> - Our upcoming Linux defensive security distribution, coming late 2026</li>
         <li><strong>DresEcoVerse</strong> - Our Telegram community with over 288 members. Updates, apps, bots, and devlogs</li>
         <li><strong>Open Source Tools</strong> - Kali Linux tools, Telegram bots, Android utilities, all on GitHub</li>
@@ -429,12 +423,12 @@
 
   <!-- MAGISK MODULES -->
   <section class="tab-panel" id="tab-modules">
-    <h2>Magisk Modules <span class="badge new">Live</span></h2>
+    <h2>Magisk Modules <span class="badge">Live</span></h2>
 
     <p>We are building Magisk modules to automate the DresOS Android build process step by step. Each module replaces a block of manual steps with a single flash in Magisk. The goal is a complete automated DresOS build.</p>
 
     <div class="info-block">
-      These modules bypass many of the restrictions Google has put in place while continuing the fight against data mining, data selling, and surveillance. Due to those restrictions we shut down our app projects including DresSecureComms - but we are not going anywhere. We redirected everything into this.
+      Due to Google's restrictions on app development and firmware swaps, we shut down all ongoing app projects including DresSecureComms. We redirected everything into Magisk modules instead. This lets us bypass many of Google's restrictions while continuing the fight against data mining, data selling, and surveillance.
     </div>
 
     <h3>Module Repository</h3>
@@ -446,14 +440,14 @@
     <h3>Released Modules</h3>
     <div class="module-grid">
       <div class="module-card">
-        <div class="module-id">dresoswv <span class="badge new">v1.0.0</span></div>
+        <div class="module-id">dresoswv <span class="badge">v1.0.0</span></div>
         <div class="module-name">DresOS AOSmium WebView</div>
         <div class="module-desc">
-          Replaces Android's system WebView with AOSmium - a Chromium fork hardened with GrapheneOS/Vanadium security patches. The system WebView is the browser engine used by hundreds of apps whenever they render web content. Google's version phones home on every render. This module replaces it in a single Magisk flash.
+          Replaces Android's system WebView with AOSmium - a Chromium fork hardened with GrapheneOS and Vanadium security patches. The system WebView is the browser engine used internally by hundreds of apps whenever they render web content. Google's version phones home on every render. This module replaces it in a single Magisk flash.
           <br><br>
-          What it does: hides all competing WebView packages, installs AOSmium to system/app, patches the config_webview_packages allowlist via RRO overlay, registers via pm install, supports Magisk and KernelSU.
+          What it does: removes competing WebView updates, hides all competing system WebView packages via Magisk .replace files, installs AOSmium to system/app, patches the config_webview_packages allowlist via a compiled RRO overlay, and registers via pm install at flash time. Supports Magisk and KernelSU.
           <br><br>
-          After flashing: Settings -> Developer Options -> WebView implementation -> select AOSmium WebView.
+          After flashing: Settings - Developer Options - WebView implementation - select AOSmium WebView.
         </div>
         <div class="module-links">
           <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/releases/latest" target="_blank">Download</a>
@@ -482,7 +476,7 @@
       <div class="module-card">
         <div class="module-id">dresosafwall <span class="badge soon">Planned</span></div>
         <div class="module-name">AFWall+ Bootstrap</div>
-        <div class="module-desc">Pre-configured iptables default-deny firewall rules ready to go.</div>
+        <div class="module-desc">Pre-configured iptables default-deny firewall rules ready to go after one flash.</div>
       </div>
       <div class="module-card">
         <div class="module-id">dresosoverlay <span class="badge soon">Planned</span></div>
@@ -492,16 +486,16 @@
       <div class="module-card">
         <div class="module-id">dresosfossify <span class="badge soon">Planned</span></div>
         <div class="module-name">Fossify Suite Installer</div>
-        <div class="module-desc">Installs the Fossify app suite (Phone, Messages, Gallery, Calendar, Launcher, Contacts, Music) as system apps.</div>
+        <div class="module-desc">Installs the Fossify app suite as system apps - Phone, Messages, Gallery, Calendar, Launcher, Contacts, Music.</div>
       </div>
       <div class="module-card">
         <div class="module-id">dresosheliboard <span class="badge soon">Planned</span></div>
         <div class="module-name">HeliBoard System Keyboard</div>
-        <div class="module-desc">Installs HeliBoard as the default system keyboard, replacing Gboard.</div>
+        <div class="module-desc">Installs HeliBoard as the default system keyboard, replacing Gboard entirely.</div>
       </div>
     </div>
 
-    <p style="margin-top:24px; color: var(--text-dim); font-size:0.85rem;">Stay tuned, stay private, and let's keep building. - The DresOS Team</p>
+    <p style="margin-top:24px; color: var(--text-dim); font-size:0.85rem;">Stay tuned, stay private, and keep building. - The DresOS Team</p>
   </section>
 
   <!-- DRESOS ANDROID -->
@@ -511,7 +505,7 @@
     <p>We originally wanted to release our own system but due to all these new cyber laws and the pressure Google is putting on firmware swaps we just could never release it. So we hope our project can bring our organisation back to its core values and release an idea we had once in a different light.</p>
 
     <div class="info-block">
-      The DresOS Android project has been fully merged into a single comprehensive guide. The old two-repo method (Android-Degoogling + Android-opsec) is now combined into one unified system with a full app suite, security architecture, and changelog.
+      The DresOS Android project has been fully merged into a single comprehensive guide. The old two-repo method (Android-Degoogling and Android-opsec) is now combined into one unified system with a full app suite, security architecture document, and changelog.
     </div>
 
     <h3>Build Your DresOS Android System</h3>
@@ -527,8 +521,8 @@
     <div class="card">
       <ul>
         <li><strong>Part 1 - DeGoogling</strong> - Full root method: TWRP, Magisk, Noogle microG, AOSmium WebView via Magisk module, Shizuku, system debloat, FOSS app replacements</li>
-        <li><strong>Part 2 - Operational Security</strong> - InviZible Pro proxy+root mode (Tor + I2P + DNSCrypt), AFWall+ kernel firewall, Tuta Mail + Duck Address email setup, GPS spoofing</li>
-        <li><strong>Part 3 - DresOS Defensive App Suite</strong> - 16 apps fully documented with setup, features, and usage</li>
+        <li><strong>Part 2 - Operational Security</strong> - InviZible Pro proxy and root mode (Tor + I2P + DNSCrypt), AFWall+ kernel firewall, Tuta Mail with Duck Address email setup, GPS spoofing via Fake Traveler</li>
+        <li><strong>Part 3 - DresOS Defensive App Suite</strong> - 16 apps fully documented with setup, features, and usage instructions</li>
       </ul>
     </div>
 
@@ -536,12 +530,12 @@
     <div class="app-list">
       <div class="app-item">
         <strong>Amaze File Manager</strong>
-        <span>Open source file manager with built-in AES-256 encryption, biometric lock, root explorer, and APK management.</span>
+        <span>Open source file manager with built-in AES-256 encryption, biometric lock, root explorer, and APK management. Replaces Fossify Files and ZArchiver Pro.</span>
         <a href="https://f-droid.org/packages/com.amaze.filemanager/" target="_blank">F-Droid</a>
       </div>
       <div class="app-item">
         <strong>IYPS</strong>
-        <span>Password strength analyser and generator with offline operation and zero data collection.</span>
+        <span>Password strength analyser and generator. Completely offline, zero data collection.</span>
         <a href="https://github.com/StellarSand/IYPS/releases/download/v1.5.6/IYPS_v1.5.6.apk" target="_blank">Download APK</a>
       </div>
       <div class="app-item">
@@ -551,84 +545,90 @@
       </div>
       <div class="app-item">
         <strong>URL Check</strong>
-        <span>Scans any link for IP loggers, malware, and phishing before you open it.</span>
+        <span>Scans any link for IP loggers, malware, and phishing before you open it. Strips tracking parameters automatically.</span>
         <a href="https://github.com/TrianguloY/URLCheck/releases/download/v3.4.1/URLCheck-3.4.1.apk" target="_blank">Download APK</a>
       </div>
       <div class="app-item">
         <strong>Hypatia</strong>
-        <span>Open source antivirus and malware scanner powered by ClamAV. Scans APKs, files, and apps.</span>
+        <span>Open source antivirus and malware scanner powered by ClamAV. Scans APKs, files, and apps before installation.</span>
         <a href="https://github.com/MaintainTeam/Hypatia/releases/download/v3.18/hypatia_v3.18.apk" target="_blank">Download APK</a>
       </div>
       <div class="app-item">
         <strong>OONI Probe</strong>
         <span>Network measurement tool that detects censorship and surveillance on your connection.</span>
-        <a href="https://f-droid.org/repo/org.openobservatory.ooniprobe_274.apk" target="_blank">Download from F-Droid</a>
+        <a href="https://f-droid.org/repo/org.openobservatory.ooniprobe_274.apk" target="_blank">F-Droid</a>
       </div>
       <div class="app-item">
         <strong>InviZible Pro</strong>
-        <span>All-in-one Tor + I2P + DNSCrypt proxy in root mode. Runs alongside DuckDuckGo App Tracking Protection.</span>
-        <a href="https://f-droid.org/repo/pan.alexander.tordnscrypt.stable_26603.apk" target="_blank">Download from F-Droid</a>
+        <span>Tor + I2P + DNSCrypt in proxy and root mode. Runs alongside DuckDuckGo App Tracking Protection without VPN slot conflicts.</span>
+        <a href="https://f-droid.org/repo/pan.alexander.tordnscrypt.stable_26603.apk" target="_blank">F-Droid</a>
       </div>
       <div class="app-item">
         <strong>Metrolist</strong>
-        <span>Privacy focused, modded YouTube Music client. Ad-free, background playback, no tracking.</span>
+        <span>Privacy focused, modded YouTube Music client. Ad-free, background playback, no Google tracking.</span>
         <a href="https://github.com/MetrolistGroup/Metrolist/releases/download/v13.3.0/Metrolist.apk" target="_blank">Download APK</a>
       </div>
       <div class="app-item">
         <strong>Arcane Chat</strong>
-        <span>Fully decentralized, end-to-end encrypted messaging built on the Delta Chat protocol over email.</span>
+        <span>Fully decentralized, end-to-end encrypted messaging built on the Delta Chat protocol over standard email infrastructure.</span>
         <a href="https://github.com/ArcaneChat/android/releases/download/v2.43.0/ArcaneChat-foss-arm64-v8a-2.43.0.apk" target="_blank">Download APK</a>
       </div>
     </div>
 
-    <h3>How this system protects you</h3>
+    <h3>How This System Protects You</h3>
     <div class="card">
       <ul>
-        <li>Removes all Google services and tracking</li>
-        <li>Replaces system WebView with AOSmium via Magisk module (GrapheneOS hardened)</li>
-        <li>Routes all traffic through Tor via InviZible Pro proxy+root mode</li>
-        <li>Encrypts all DNS queries via DNSCrypt at kernel level using iptables</li>
+        <li>Removes all Google services and tracking from the device</li>
+        <li>Replaces system WebView with AOSmium via Magisk module - GrapheneOS hardened Chromium</li>
+        <li>Routes all traffic through Tor via InviZible Pro proxy and root mode</li>
+        <li>Encrypts all DNS queries via DNSCrypt enforced at kernel level via iptables</li>
         <li>Blocks in-app trackers via DuckDuckGo App Tracking Protection</li>
-        <li>Kernel-level firewall via AFWall+ with per-app rules</li>
-        <li>AES-256 file encryption via Amaze File Manager</li>
+        <li>Kernel-level firewall via AFWall+ with per-app rules and mobile data proxy redirect</li>
+        <li>AES-256 file encryption via Amaze File Manager with biometric lock</li>
         <li>Scans every link before opening via URL Check</li>
-        <li>Scans every APK before installing via Hypatia (ClamAV)</li>
-        <li>End-to-end encrypted email via Tuta Mail with Duck Address aliases</li>
+        <li>Scans every APK before installing via Hypatia (ClamAV signatures)</li>
+        <li>End-to-end encrypted email via Tuta Mail with Duck Address aliases so your real address is never exposed</li>
         <li>GPS spoofing via Fake Traveler</li>
-        <li>MAC address randomisation per network</li>
+        <li>MAC address randomisation per Wi-Fi network</li>
       </ul>
     </div>
 
     <h3>Wallpapers</h3>
-    <p>Click to open full size, then save.</p>
+    <p>Click each image to open it full size, then save.</p>
     <div class="wallpaper-grid">
       <a href="https://image2url.com/r2/default/images/1774015449216-7f721514-09fa-4d07-b667-85e1609ca231.png" target="_blank">
-        <img src="https://image2url.com/r2/default/images/1774015449216-7f721514-09fa-4d07-b667-85e1609ca231.png" alt="DresOS Wallpaper 1" />
+        <img src="https://image2url.com/r2/default/images/1774015449216-7f721514-09fa-4d07-b667-85e1609ca231.png" alt="DresOS Wallpaper 1" loading="lazy" />
       </a>
       <a href="https://image2url.com/r2/default/images/1774015505618-c44dd474-4d07-409d-93f2-b2e060270ffa.png" target="_blank">
-        <img src="https://image2url.com/r2/default/images/1774015505618-c44dd474-4d07-409d-93f2-b2e060270ffa.png" alt="DresOS Wallpaper 2" />
+        <img src="https://image2url.com/r2/default/images/1774015505618-c44dd474-4d07-409d-93f2-b2e060270ffa.png" alt="DresOS Wallpaper 2" loading="lazy" />
       </a>
     </div>
 
-    <h3>Open Source License</h3>
-    <p>This entire DresOS Android section and guide is licensed under the MIT License. You are free to use, modify, copy, and distribute it (including commercially) as long as you keep the copyright notice.</p>
-    <pre>MIT License
+ <h3>Open Source License</h3>
+<p>The DresOS Android guide and all associated documentation is licensed under the <strong>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</strong>.</p>
 
-Copyright (c) 2026 DresOS
+<p>You are free to share, copy, redistribute, adapt, remix, transform, and build upon the material for non-commercial purposes, as long as you give appropriate credit to DresOS, provide a link to the license, and release any modifications under the same license.</p>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+<pre>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+CC BY-NC-SA 4.0
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+Copyright (C) 2026 DresOperatingSystems
+https://dresoperatingsystems.github.io
+https://github.com/DresOperatingSystems
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.</pre>
+You are free to:
+  • Share - copy and redistribute the material in any medium or format
+  • Adapt - remix, transform, and build upon the material
+
+Under the following terms:
+  • Attribution - Give appropriate credit, provide a link to the license, 
+    and indicate if changes were made.
+  • NonCommercial - You may not use the material for commercial purposes.
+  • ShareAlike - If you remix, transform, or build upon the material, 
+    you must distribute your contributions under the same license.
+
+Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+</pre>
   </section>
 
   <!-- GITHUB PROJECTS -->
@@ -638,7 +638,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.</pre>
     <h3>DresOS Android</h3>
     <div class="card">
       <ul>
-        <li><a href="https://github.com/DresOperatingSystems/DresOS-The-Android-Defensive-Security-System" target="_blank">DresOS-The-Android-Defensive-Security-System</a> - The complete unified DresOS Android guide. DeGoogling, OPSEC stack, Magisk modules, defensive app suite. Includes Security Architecture and Changelog.</li>
+        <li><a href="https://github.com/DresOperatingSystems/DresOS-The-Android-Defensive-Security-System" target="_blank">DresOS-The-Android-Defensive-Security-System</a> - The complete unified DresOS Android guide. DeGoogling, OPSEC stack, Magisk modules, defensive app suite, Security Architecture, and Changelog.</li>
         <li><a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules" target="_blank">DresOS-Magisk-Modules</a> - Magisk modules automating the DresOS build. First release: AOSmium WebView v1.0.0.</li>
       </ul>
     </div>
@@ -683,7 +683,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.</pre>
         <li>If our DresOS Android guide is used unethically or illegally, we take zero responsibility and are not liable for any consequences.</li>
         <li>Zero tolerance for racism, violence, and Child Sexual Abuse Material (CSAM). Any such behavior will result in immediate removal and potential reporting to authorities.</li>
         <li>Treat our bots with care and respect. Do not abuse, spam, or misuse them in any way.</li>
-        <li>For feedback or bug reports, please contact us directly.</li>
+        <li>For feedback or bug reports, please contact us using the options in the Contact tab.</li>
         <li>If you email or message us for support, it must be related to our organization, projects, or services. Unrelated inquiries may not receive a response.</li>
         <li>Be kind and respectful to others in the EcoVerse and all our communities. Harassment, bullying, or disruptive behavior will not be tolerated.</li>
       </ul>
@@ -692,10 +692,50 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.</pre>
     <p style="color:var(--text-dim); font-size:0.83rem; margin-top:16px;">These terms are subject to change. Continued use of our services implies acceptance of the latest version.</p>
   </section>
 
+  <!-- CONTACT -->
+  <section class="tab-panel" id="tab-contact">
+    <h2>Contact Us</h2>
+    <p>Reach us through any of the channels below. For support requests, please make sure your message is related to our organization, projects, or services.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="contact-icon">&#9993;</span>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">General enquiries, bug reports, and project feedback.</div>
+        <a href="mailto:dresoperatingsystems@gmail.com" class="link-btn" style="margin:0 auto;">Email Us</a>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-icon">&#128172;</span>
+        <div class="contact-label">Telegram Bot</div>
+        <div class="contact-value">Message DresAI directly for quick support and questions.</div>
+        <a href="https://t.me/DresosIbot" target="_blank" class="link-btn" style="margin:0 auto;">@DresosIbot</a>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-icon">&#128274;</span>
+        <div class="contact-label">Encrypted Contact</div>
+        <div class="contact-value">Contact us via Arcane Chat or Delta Chat using our email address. End-to-end encrypted by default.</div>
+        <a href="mailto:dresoperatingsystems@gmail.com" class="link-btn" style="margin:0 auto;">Send Encrypted</a>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-icon">&#127760;</span>
+        <div class="contact-label">Community</div>
+        <div class="contact-value">Join the DresEcoVerse on Telegram to follow updates and connect with the community.</div>
+        <a href="https://t.me/+gqKa5SMoAls4NWY0" target="_blank" class="link-btn" style="margin:0 auto;">DresEcoVerse</a>
+      </div>
+    </div>
+
+    <div class="info-block" style="margin-top:28px;">
+      Response times vary. We are a small open source team and handle all support in our free time. We will always get back to you on project related questions.
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  <p>Copyright &copy; 2026 DresOS. All rights reserved. &nbsp;|&nbsp; <a href="https://github.com/DresOperatingSystems/DresOperatingSystems.github.io" target="_blank">Website Source</a></p>
+  <p>Copyright &copy; 2026 DresOS. Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>. &nbsp;|&nbsp; <a href="https://github.com/DresOperatingSystems/DresOperatingSystems.github.io" target="_blank">Website Source</a> &nbsp;|&nbsp; <a href="https://github.com/DresOperatingSystems" target="_blank">GitHub</a> &nbsp;|&nbsp; <a href="https://t.me/+gqKa5SMoAls4NWY0" target="_blank">Telegram</a></p>
 </footer>
 
 <script>
