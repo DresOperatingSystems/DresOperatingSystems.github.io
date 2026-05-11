@@ -47,8 +47,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 15px;
+      font-family: 'Courier New', Courier, monospace;      font-size: 15px;
       line-height: 1.7;
       min-height: 100vh;
     }
@@ -97,8 +96,7 @@
     nav button {
       background: none;
       border: none;
-      border-bottom: 3px solid transparent;
-      color: var(--text-dim);
+      border-bottom: 3px solid transparent;      color: var(--text-dim);
       cursor: pointer;
       font-family: inherit;
       font-size: 0.78rem;
@@ -147,7 +145,6 @@
       transition: border-color 0.15s;
     }
     a:hover { border-bottom-color: var(--green); }
-
     ul, ol {
       margin: 10px 0 16px 0;
       padding-left: 0;
@@ -197,7 +194,6 @@
     }
 
     .module-grid { display: grid; gap: 16px; margin-top: 16px; }
-
     .module-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -247,8 +243,7 @@
 
     .link-btn {
       display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      align-items: center;      gap: 6px;
       background: var(--surface);
       border: 1px solid var(--green);
       color: var(--green);
@@ -297,8 +292,7 @@
       margin-top: 16px;
     }
 
-    .contact-card {
-      background: var(--surface);
+    .contact-card {      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 4px;
       padding: 20px;
@@ -339,7 +333,7 @@
 
 <nav id="tab-nav">
   <button class="active" onclick="switchTab('welcome', this)">Welcome</button>
-  <button onclick="switchTab('ecoverse', this)">DresEcoVerse</button>
+  <button onclick="switchTab('updates', this)">Updates</button>
   <button onclick="switchTab('distro', this)">Security Distro</button>
   <button onclick="switchTab('modules', this)">Magisk Modules</button>
   <button onclick="switchTab('android', this)">DresOS Android</button>
@@ -347,7 +341,6 @@
   <button onclick="switchTab('tos', this)">Terms of Service</button>
   <button onclick="switchTab('contact', this)">Contact</button>
 </nav>
-
 <main>
 
   <!-- WELCOME -->
@@ -362,7 +355,6 @@
         <li><strong>DresOS Android</strong> - A complete guide to build your own fully private, deGoogled Android system using TWRP, Magisk, microG, and the full DresOS defensive app suite</li>
         <li><strong>Magisk Modules</strong> - Automating the DresOS Android build process one module at a time. First module live: AOSmium WebView v1.0.0</li>
         <li><strong>DresOS: The Defensive Security Distro</strong> - Our upcoming Linux defensive security distribution, coming late 2026</li>
-        <li><strong>DresEcoVerse</strong> - Our Telegram community with over 288 members. Updates, apps, bots, and devlogs</li>
         <li><strong>Open Source Tools</strong> - Kali Linux tools, Telegram bots, Android utilities, all on GitHub</li>
       </ul>
     </div>
@@ -387,38 +379,41 @@
     </div>
   </section>
 
-  <!-- DRESECOVERSE -->
-  <section class="tab-panel" id="tab-ecoverse">
-    <h2>DresEcoVerse</h2>
-    <p>The DresEcoVerse is our central Telegram group where we release updates related to our organization. Join us at <a href="https://t.me/+gqKa5SMoAls4NWY0" target="_blank">The DresEcoVerse</a> (over 288 members as of early 2026) to stay connected.</p>
+  <!-- UPDATES (REPLACES DRESECOVERSE) -->
+  <section class="tab-panel" id="tab-updates">
+    <h2>Updates</h2>
 
-    <h3>Channels</h3>
-    <div class="card">
-      <ul>
-        <li><strong>UPDATES</strong> - Latest news and announcements from DresOS</li>
-        <li><strong>APPS</strong> - Our curated FOSS app list</li>
-        <li><strong>BOTS</strong> - Info on our Telegram bots</li>
-        <li><strong>GITHUB PROJECTS</strong> - Links to our GitHub projects</li>
-        <li><strong>DresOS: The Defensive Security Distro</strong> - Devlogs and progress updates on our Linux distro</li>
-        <li><strong>DRES RADIO</strong> - What we listen to whilst we work</li>
-      </ul>
-    </div>
+    <article class="card">
+      <h3>May 12, 2026 - First Official Website Update: DresEcoVerse Archived</h3>
+      <p>The DresEcoVerse has been officially closed down. We now maintain this actively updated website where all our resources, guides, and announcements can be found in one place. This is easier for everyone to navigate and keeps everything centralized.</p>
+      <p>With our focus now on the <strong>already released</strong> DresOS Magisk Modules for our Android Defensive Security System build, and with the full app list included directly in the DresOS Android guide, there is no longer a need for the EcoVerse as a separate hub.</p>
+      <p><strong>Important:</strong> The only official DresOS presence on Telegram now is our bot <strong>@DresosIbot</strong>. Always check this website for link authenticity and official announcements.</p>
+    </article>
 
-    <h3>FOSS Apps Section</h3>
-    <p>The FOSS Apps section in the EcoVerse is a curated collection of the best privacy focused, security enhancing and quality of life apps for Android. We are especially proud of this one as it shines a light on many underrated open source developers.</p>
+    <article class="card">      <h3>April 30, 2026 - A Message to Our Supporters</h3>
+      <p>Hello to all our supporters,</p>
+      <p>The past two years with DresOS have been incredible, and we can't thank you enough for the love and support you've shown us.</p>
+      <p>As times change, we've decided to scale things back. With our first Magisk module for the defensive security guide now released, activity at DresOS will slow down significantly. From that point on, our bot will handle running and updating everything.</p>
+      <p>The reason for this shift is that we're launching a sister organization focused on AI engineering specifically models built around antivirus, security, encryption, FOSS app development, and related areas. You can check out the security model currently powering our bot.</p>
+      <p>Stepping into AI engineering also means we can no longer keep everything fully open source. To stay true to DresOS's core values and our commitment to open-source principles, we're creating a new organization called ZeusAI.</p>
+      <p>Stay tuned for more updates coming soon!</p>
+      <p><em>The DresOS Team</em></p>
+      <p>Here is the link to our sister organisation so if you can join and support it, It would be much appreciated <a class="link-btn" href="https://t.me/+Oe3llA2cwZoxYjk8" target="_blank">⚡ ZeusAI</a></p>
+    </article>
 
-    <h3>DresTor</h3>
-    <p>DresTor is a refreshed and maintained fork of an older Tor client from The Guardian Project that had unfortunately fallen out of active development. We updated it and gave it a proper home so it could continue to serve the FOSSverse.</p>
-
-    <h3>DresGeoSpoofing</h3>
-    <p>DresGeoSpoofing is a fork and improvement of an excellent location spoofing app originally created by Matias and his team. This was a learning exercise for us as we want to begin developing our own original apps and it was our way of saying thank you to Matias for actually inspiring us to work on apps. We left all credits to Matias and his team in the app so others can discover their outstanding open source work.</p>
+    <article class="card">
+      <h3>April 30, 2026 - Keep Android Open</h3>
+      <p>Hello and we have a massive favour for you guys all open source organisations like ours need your help to keep the android world open, the world of android is starting to Look bleak but with your help we can keep the fight against google going, to find out how you can help and do your part please check the links below and lets keep the struggle going</p>
+      <p><a href="https://keepandroidopen.org/open-letter/" target="_blank">https://keepandroidopen.org/open-letter/</a></p>
+      <p><a href="https://keepandroidopen.org/" target="_blank">https://keepandroidopen.org/</a></p>
+    </article>
   </section>
 
   <!-- DISTRO -->
   <section class="tab-panel" id="tab-distro">
     <h2>DresOS: The Defensive Security Distro</h2>
     <p>Coming late 2026.</p>
-    <p>Check out the DresEcoVerse for devlogs and progress updates on it.</p>
+    <p>Check the Updates tab for progress announcements and devlogs.</p>
   </section>
 
   <!-- MAGISK MODULES -->
@@ -444,8 +439,7 @@
         <div class="module-name">DresOS AOSmium WebView</div>
         <div class="module-desc">
           Replaces Android's system WebView with AOSmium - a Chromium fork hardened with GrapheneOS and Vanadium security patches. The system WebView is the browser engine used internally by hundreds of apps whenever they render web content. Google's version phones home on every render. This module replaces it in a single Magisk flash.
-          <br><br>
-          What it does: removes competing WebView updates, hides all competing system WebView packages via Magisk .replace files, installs AOSmium to system/app, patches the config_webview_packages allowlist via a compiled RRO overlay, and registers via pm install at flash time. Supports Magisk and KernelSU.
+          <br><br>          What it does: removes competing WebView updates, hides all competing system WebView packages via Magisk .replace files, installs AOSmium to system/app, patches the config_webview_packages allowlist via a compiled RRO overlay, and registers via pm install at flash time. Supports Magisk and KernelSU.
           <br><br>
           After flashing: Settings - Developer Options - WebView implementation - select AOSmium WebView.
         </div>
@@ -494,7 +488,6 @@
         <div class="module-desc">Installs HeliBoard as the default system keyboard, replacing Gboard entirely.</div>
       </div>
     </div>
-
     <p style="margin-top:24px; color: var(--text-dim); font-size:0.85rem;">Stay tuned, stay private, and keep building. - The DresOS Team</p>
   </section>
 
@@ -544,8 +537,7 @@
         <a href="https://github.com/QuantumBadger/RedReader/releases/download/v1.25.1/RedReader-v1.25.1.apk" target="_blank">Download APK</a>
       </div>
       <div class="app-item">
-        <strong>URL Check</strong>
-        <span>Scans any link for IP loggers, malware, and phishing before you open it. Strips tracking parameters automatically.</span>
+        <strong>URL Check</strong>        <span>Scans any link for IP loggers, malware, and phishing before you open it. Strips tracking parameters automatically.</span>
         <a href="https://github.com/TrianguloY/URLCheck/releases/download/v3.4.1/URLCheck-3.4.1.apk" target="_blank">Download APK</a>
       </div>
       <div class="app-item">
@@ -594,8 +586,7 @@
     </div>
 
     <h3>Wallpapers</h3>
-    <p>Click each image to open it full size, then save.</p>
-    <div class="wallpaper-grid">
+    <p>Click each image to open it full size, then save.</p>    <div class="wallpaper-grid">
       <a href="https://image2url.com/r2/default/images/1774015449216-7f721514-09fa-4d07-b667-85e1609ca231.png" target="_blank">
         <img src="https://image2url.com/r2/default/images/1774015449216-7f721514-09fa-4d07-b667-85e1609ca231.png" alt="DresOS Wallpaper 1" loading="lazy" />
       </a>
@@ -644,8 +635,7 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
     </div>
 
     <h3>Kali Linux</h3>
-    <div class="card">
-      <ul>
+    <div class="card">      <ul>
         <li><a href="https://github.com/DresOperatingSystems/Third-Party-Kali-Nethunter-Build" target="_blank">Third-Party-Kali-Nethunter-Build</a> - Our Third Party Nethunter Build. (Python, 6 stars)</li>
         <li><a href="https://github.com/DresOperatingSystems/kali-linux-private-network-setup" target="_blank">kali-linux-private-network-setup</a> - Steps to set up Kali Linux as a private and encrypted server for your home or business network. (Shell, 1 star)</li>
       </ul>
@@ -674,18 +664,18 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
   <!-- TERMS OF SERVICE -->
   <section class="tab-panel" id="tab-tos">
     <h2>Terms of Service</h2>
-    <p>By engaging with DresOS, our projects, services, or communities (including the DresEcoVerse), you agree to the following terms:</p>
+    <p>By engaging with DresOS, our projects, services, or communities, you agree to the following terms:</p>
 
     <div class="card">
       <ul>
         <li>We abide by the rules and guidelines of all platforms we use (Telegram, GitHub, F-Droid). Users must also comply with these platform specific rules when interacting with our content or communities.</li>
         <li>Anyone who uses our DresOS Android section must follow the rules and terms of each individual application listed.</li>
         <li>If our DresOS Android guide is used unethically or illegally, we take zero responsibility and are not liable for any consequences.</li>
-        <li>Zero tolerance for racism, violence, and CSAM content. Any such behavior will result in immediate removal and potential reporting to authorities.</li>
-        <li>Treat our bots with care and respect. Do not abuse, spam, or misuse them in any way.</li>
+        <li>Zero tolerance for racism, violence, and CSAM content. Any such behavior will result in potential reporting to authorities.</li>
+        <li>Treat our bot with care and respect. Do not abuse, spam, or misuse him in any way.</li>
         <li>For feedback or bug reports, please contact us using the options in the Contact tab.</li>
         <li>If you email or message us for support, it must be related to our organization, projects, or services. Unrelated inquiries may not receive a response.</li>
-        <li>Be kind and respectful to others in the EcoVerse and all our communities. Harassment, bullying, or disruptive behavior will not be tolerated.</li>
+        <li>Be kind and respectful to others in all our communities, forum threads and open bug reports. Harassment, bullying, or disruptive behavior will not be tolerated.</li>
       </ul>
     </div>
 
@@ -694,8 +684,7 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 
   <!-- CONTACT -->
   <section class="tab-panel" id="tab-contact">
-    <h2>Contact Us</h2>
-    <p>Reach us through any of the channels below. For support requests, please make sure your message is related to our organization, projects, or services.</p>
+    <h2>Contact Us</h2>    <p>Reach us through any of the channels below. For support requests, please make sure your message is related to our organization, projects, or services.</p>
 
     <div class="contact-grid">
       <div class="contact-card">
@@ -718,13 +707,6 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
         <div class="contact-value">Contact us via Arcane Chat or Delta Chat using the link to our account. End-to-end encrypted by default.</div>
         <a href="https://i.delta.chat/#DD2D2DC0297546BE768E070A073ADBB3D36F79BD&v=3&i=d6JFGvrRAV_tfRkvwNaA3PMB&s=A96XYSN94Vq9A5tm2WSJihcA&a=evwsmlihf%40arcanechat.me&n=DresOS+Buisness+Account" class="link-btn" style="margin:0 auto;">Send Encrypted</a>
       </div>
-
-      <div class="contact-card">
-        <span class="contact-icon">&#127760;</span>
-        <div class="contact-label">Community</div>
-        <div class="contact-value">Join the DresEcoVerse on Telegram to follow updates and connect with the community.</div>
-        <a href="https://t.me/+gqKa5SMoAls4NWY0" target="_blank" class="link-btn" style="margin:0 auto;">DresEcoVerse</a>
-      </div>
     </div>
 
     <div class="info-block" style="margin-top:28px;">
@@ -735,7 +717,7 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 </main>
 
 <footer>
-  <p>Copyright &copy; 2026 DresOS. Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>. &nbsp;|&nbsp; <a href="https://github.com/DresOperatingSystems/DresOperatingSystems.github.io" target="_blank">Website Source</a> &nbsp;|&nbsp; <a href="https://github.com/DresOperatingSystems" target="_blank">GitHub</a> &nbsp;|&nbsp; <a href="https://t.me/+gqKa5SMoAls4NWY0" target="_blank">Telegram</a></p>
+  <p>Copyright &copy; 2026 DresOS. Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.  |  <a href="https://github.com/DresOperatingSystems/DresOperatingSystems.github.io" target="_blank">Website Source</a>  |  <a href="https://github.com/DresOperatingSystems" target="_blank">GitHub</a></p>
 </footer>
 
 <script>
@@ -749,4 +731,4 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 </script>
 
 </body>
-</html>
+                                                                                     </html>
