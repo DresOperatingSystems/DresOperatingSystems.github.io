@@ -1,6 +1,32 @@
 ## [Unreleased]
 
 ### Changed
+- AOSmium WebView module card updated from v1.0.0 to v2.1.0:
+  - Description rewritten to reflect new activation pipeline (static RRO + systemless bind mount + cmd webviewupdate, with dumpsys verification)
+  - Removed references to pm install, Magisk .replace files, and manual selection in Developer Options
+  - Added requirements line (Magisk 24.0+, Android 10-15, arm/arm64)
+- Welcome section "What we do" bullet updated: now reads "Current release: AOSmium WebView v2.1.0. Next module in development: MicroG (dresosmicrog)."
+- GitHub Projects section: DresOS-Magisk-Modules description updated from "First release: AOSmium WebView v1.0.0" to "Current release: AOSmium WebView v2.1.0. MicroG module in development."
+
+### Added
+- Confirmed working devices list under AOSmium WebView module card:
+  - Motorola Moto G32 on LineageOS Android 15
+  - Motorola ThinkPhone on Stock Android 15
+  - Motorola Moto G7 Plus on Stock Android 10
+  - Motorola Moto G7 Plus on LineageOS Android 15
+  - Samsung Galaxy A05s on Stock Android 10
+- New May 15, 2026 update entry at the top of the Updates section detailing:
+  - AOSmium v2.1.0 rewrite of the activation pipeline
+  - Root cause of the v1.0.0 Pixel 9 bootloop (pm install plus .replace markers removing the fallback provider)
+  - Root cause of the v1.2.x silent activation failure (plain text overlay manifest, wrong target package)
+  - New three step activation pipeline (RRO plus bind mount plus cmd webviewupdate)
+  - Two layers of bootloop safety (post-fs-data sentinel and inert mode flag)
+  - Confirmed working devices list
+  - Announcement that work begins next on the MicroG module (dresosmicrog)
+
+## Previous Unreleased
+
+### Changed
 - Replaced DresEcoVerse tab with Updates tab in navigation
 - Removed all references to DresEcoVerse across the site:
   - Welcome section: removed EcoVerse bullet point from "What we do" list

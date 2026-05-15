@@ -353,7 +353,7 @@
     <div class="card">
       <ul>
         <li><strong>DresOS Android</strong> - A complete guide to build your own fully private, deGoogled Android system using TWRP, Magisk, microG, and the full DresOS defensive app suite</li>
-        <li><strong>Magisk Modules</strong> - Automating the DresOS Android build process one module at a time. First module live: AOSmium WebView v1.0.0</li>
+        <li><strong>Magisk Modules</strong> - Automating the DresOS Android build process one module at a time. Current release: AOSmium WebView v2.1.0. Next module in development: MicroG (dresosmicrog).</li>
         <li><strong>DresOS: The Defensive Security Distro</strong> - Our upcoming Linux defensive security distribution, coming late 2026</li>
         <li><strong>Open Source Tools</strong> - Kali Linux tools, Telegram bots, Android utilities, all on GitHub</li>
       </ul>
@@ -382,6 +382,24 @@
   <!-- UPDATES (REPLACES DRESECOVERSE) -->
   <section class="tab-panel" id="tab-updates">
     <h2>Updates</h2>
+
+    <article class="card">
+      <h3>May 15, 2026 - AOSmium WebView v2.1.0 Released, MicroG Module Next</h3>
+      <p>The AOSmium WebView Magisk module has been rewritten from the ground up and released as v2.1.0.</p>
+      <p>The previous v1.0.0 flashed cleanly on Motorola Moto G32 and similar devices but bootlooped Pixel 9 and several LineageOS builds because it relied on pm install at flash time (the data partition is not yet mounted at that stage on some LineageOS builds) and hid the OEM WebView via Magisk .replace markers, leaving devices without a fallback provider when AOSmium failed to load. Later versions removed the bootloop but never actually activated AOSmium, because the bundled overlay APK was plain text XML rather than a properly compiled binary AXML overlay, and the overlay targeted com.android.webview instead of the framework android package where config_webview_packages actually lives.</p>
+      <p>v2.1.0 is a complete redesign of the activation pipeline. The overlay is now a properly compiled RRO signed with v1, v2, and v3 schemes, with the AXP.OS ECDSA certificate embedded as a base64 DER block in the signature element of config_webview_packages.xml. The AOSmium APK is placed in the systemless tree at system/product/app/AOSmiumWebView/ via Magisk magic mount, satisfying the framework MATCH_FACTORY_ONLY scan without any pm install. Activation runs in service.sh after sys.boot_completed via cmd webviewupdate set-webview-implementation, with a settings put global webview_provider fallback write and a dumpsys verification step.</p>
+      <p>Two layers of bootloop safety were added. post-fs-data.sh drops a boot_pending marker on every boot which service.sh clears on success; a stale marker on the next boot means the previous boot crashed before activation completed, and the module auto-disables itself by touching disable. service.sh also flips the module into inert mode on any activation failure to prevent retry storms.</p>
+      <p>The module has been confirmed working on the following devices:</p>
+      <ul>
+        <li>Motorola Moto G32 on LineageOS Android 15</li>
+        <li>Motorola ThinkPhone on Stock Android 15</li>
+        <li>Motorola Moto G7 Plus on Stock Android 10</li>
+        <li>Motorola Moto G7 Plus on LineageOS Android 15</li>
+        <li>Samsung Galaxy A05s on Stock Android 10</li>
+      </ul>
+      <p>x86 and x86_64 are not supported because AXP.OS does not publish WebView builds for those ABIs.</p>
+      <p>With AOSmium WebView now stable, work begins next on the MicroG module (<strong>dresosmicrog</strong>). This will replace Google Play Services with MicroG for app compatibility without Google's tracking infrastructure, all in a single Magisk flash. Updates to follow in this tab as development progresses.</p>
+    </article>
 
     <article class="card">
       <h3>May 12, 2026 - First Official Website Update: DresEcoVerse Archived</h3>
@@ -435,13 +453,24 @@
     <h3>Released Modules</h3>
     <div class="module-grid">
       <div class="module-card">
-        <div class="module-id">dresoswv <span class="badge">v1.0.0</span></div>
+        <div class="module-id">dresoswv <span class="badge">v2.1.0</span></div>
         <div class="module-name">DresOS AOSmium WebView</div>
         <div class="module-desc">
           Replaces Android's system WebView with AOSmium - a Chromium fork hardened with GrapheneOS and Vanadium security patches. The system WebView is the browser engine used internally by hundreds of apps whenever they render web content. Google's version phones home on every render. This module replaces it in a single Magisk flash.
-          <br><br>          What it does: removes competing WebView updates, hides all competing system WebView packages via Magisk .replace files, installs AOSmium to system/app, patches the config_webview_packages allowlist via a compiled RRO overlay, and registers via pm install at flash time. Supports Magisk and KernelSU.
           <br><br>
-          After flashing: Settings - Developer Options - WebView implementation - select AOSmium WebView.
+          How it works: a static RRO is placed in the systemless overlay partition to add AOSmium plus the AXP.OS signing certificate to config_webview_packages, the AOSmium APK is dropped into the systemless system tree via Magisk magic mount, and after boot complete service.sh runs cmd webviewupdate set-webview-implementation to promote AOSmium to the active provider. Activation is verified via dumpsys. Two layers of bootloop safety sit on top: a post-fs-data sentinel that auto-disables the module if a previous boot crashed, and an inert mode flag that prevents retry storms on activation failure.
+          <br><br>
+          <strong>Confirmed working devices:</strong>
+          <ul>
+            <li>Motorola Moto G32 on LineageOS Android 15</li>
+            <li>Motorola ThinkPhone on Stock Android 15</li>
+            <li>Motorola Moto G7 Plus on Stock Android 10</li>
+            <li>Motorola Moto G7 Plus on LineageOS Android 15</li>
+            <li>Samsung Galaxy A05s on Stock Android 10</li>
+          </ul>
+          <strong>Requirements:</strong> Magisk 24.0 or newer, Android 10 through 15, arm or arm64.
+          <br><br>
+          After flashing: reboot, then verify with adb shell dumpsys webviewupdate. The active provider should be org.axpos.aosmium_wv.
         </div>
         <div class="module-links">
           <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/releases/latest" target="_blank">Download</a>
@@ -630,7 +659,7 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
     <div class="card">
       <ul>
         <li><a href="https://github.com/DresOperatingSystems/DresOS-The-Android-Defensive-Security-System" target="_blank">DresOS-The-Android-Defensive-Security-System</a> - The complete unified DresOS Android guide. DeGoogling, OPSEC stack, Magisk modules, defensive app suite, Security Architecture, and Changelog.</li>
-        <li><a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules" target="_blank">DresOS-Magisk-Modules</a> - Magisk modules automating the DresOS build. First release: AOSmium WebView v1.0.0.</li>
+        <li><a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules" target="_blank">DresOS-Magisk-Modules</a> - Magisk modules automating the DresOS build. Current release: AOSmium WebView v2.1.0. MicroG module in development.</li>
       </ul>
     </div>
 
