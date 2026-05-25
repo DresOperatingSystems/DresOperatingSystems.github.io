@@ -127,3 +127,27 @@ footer {
     margin-top: 40px;
     color: #808080;
 }
+
+/* Donate button (Ko-fi) */
+.kofi-button {
+    display: inline-block;
+    margin: 12px 0;
+}
+
+.kofi-button img {
+    border: none;
+    height: 36px;
+}
+
+.donate-card {
+    background: #000000;
+    border: 1px solid #00FF00;
+    padding: 16px;
+    margin: 16px 0;
+    text-align: center;
+}
+
+.donate-card p {
+    color: #808080;
+    margin-bottom: 12px;
+}

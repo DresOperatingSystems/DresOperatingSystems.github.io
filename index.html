@@ -353,35 +353,44 @@
     <div class="card">
       <ul>
         <li><strong>DresOS Android</strong> - A complete guide to build your own fully private, deGoogled Android system using TWRP, Magisk, microG, and the full DresOS defensive app suite</li>
-        <li><strong>Magisk Modules</strong> - Automating the DresOS Android build process one module at a time. Current release: AOSmium WebView v2.1.0. Next module in development: MicroG (dresosmicrog).</li>
+        <li><strong>Magisk Modules</strong> - Automating the DresOS Android build process one module at a time. Current releases: AOSmium WebView v2.1.0, DresOS microG v2.0.0. Next module in development: Permissions Hardener (dresosperms).</li>
         <li><strong>DresOS: The Defensive Security Distro</strong> - Our upcoming Linux defensive security distribution, coming late 2026</li>
         <li><strong>Open Source Tools</strong> - Kali Linux tools, Telegram bots, Android utilities, all on GitHub</li>
       </ul>
     </div>
 
-    <h3>DresAI - Intelligent AI Assistant</h3>
-    <div class="card">
-      <p>Privacy First - Real Time Knowledge - Extra Encryption Layers</p>
-      <p>Built and maintained by DresOS to assist the community with Linux, security, Android, development, and anything else you need. Uses DuckDuckGo for real time search while keeping maximum privacy.</p>
-      <p><strong>How to use it:</strong></p>
-      <ul>
-        <li>In private chat: send any message</li>
-        <li>In group: mention @DresosIbot or say 'dres', 'hey dres', or 'dresai'</li>
-        <li>Reply to any message it sends</li>
-      </ul>
-      <p><strong>Encryption stack:</strong></p>
-      <ul>
-        <li>AES-256 encryption with Fernet</li>
-        <li>PBKDF2 key derivation (1.2 million iterations)</li>
-        <li>Machine bound keys, never stored in plaintext</li>
-        <li>Rotating spoofed IP addresses on every search</li>
-      </ul>
+    <h3>Support DresOS</h3>
+    <div class="card" style="text-align:center;">
+      <p>DresOS is built by a small open source team in our spare time. Every Magisk module, every guide, and every bug fix is unpaid work. If our tools help you, drop a tip in the jar.</p>
+      <p>Funds go directly to test devices for module compatibility (Pixel, Samsung, Motorola, OnePlus, Xiaomi), bot hosting, domain renewals, and developer time on the next module.</p>
+      <p style="margin-top:18px;">
+        <a class="link-btn" href="https://ko-fi.com/dresos" target="_blank">☕ Donate on Ko-fi</a>
+      </p>
     </div>
   </section>
 
   <!-- UPDATES (REPLACES DRESECOVERSE) -->
   <section class="tab-panel" id="tab-updates">
     <h2>Updates</h2>
+
+    <article class="card">
+      <h3>May 25, 2026 - DresOS microG v2.0.0 Released</h3>
+      <p>The DresOS microG Magisk module has been released as v2.0.0. It replaces the older Noogle microG plus LSPosed plus FakeGApps chain in the DresOS Android guide with a single flash.</p>
+      <p>The module stages the full microG suite as systemless privileged apps: microG GmsCore 0.3.7.250932, microG Companion (FakeStore at <code>com.android.vending</code>), microG GsfProxy, microG DroidGuard Helper, plus Aurora Store as a user app. APKs and matching privapp permissions XML land in the same partition (<code>system/product/priv-app</code> on API 28 plus, <code>system/priv-app</code> on API 26 and 27), satisfying Android 11 plus same partition enforcement.</p>
+      <p>Signature spoofing is bundled as a Zygisk hook scoped to the microG process only. On arm64 and x86_64 LSPosed is no longer required. On armeabi-v7a, armeabi, x86, or riscv64 the bundled hook does not ship a prebuilt and LSPosed plus FakeGApps remains the fallback.</p>
+      <p>Cert identity is verified post boot by reading the X.509 SHA-256 that PackageManager itself computes via <code>cmd package dump</code>, not by hashing META-INF/*.RSA blobs which legitimately vary between build environments. ROMs that already ship a working upstream signed microG (CalyxOS, LineageOS for microG, iodeOS, /e/OS) are autodetected by cert match and their copy is preserved; only the Aurora components are staged on those ROMs. GrapheneOS is hard refused because GrapheneOS deliberately blocks signature spoofing and ships its own Sandboxed Google Play.</p>
+      <p>Debloat moved off systemless overlay markers onto runtime <code>pm disable-user</code>, persisted in <code>/data/system/users/0/package-restrictions.xml</code>. This ends the Android 14 plus boot loop class where overlaying a priv-app directory hid the ART OAT cache. Uninstalling the module re enables every package the module disabled.</p>
+      <p>The bootloop sentinel is per component: a strike for the Zygisk hook only disables Zygisk on the next boot, a strike for the priv-app overlay only disables the overlay, a strike for the debloat pass only disables debloat. The rest of the module keeps running.</p>
+      <p><strong>Known issue in v2.0.0:</strong> the Aurora Privileged Extension (<code>com.aurora.services</code>) does not always land as a system priv app on every device. Aurora Store itself works fine. The silent install path through Aurora Services is the affected piece, which means you will see the standard Android installer prompt for each Aurora Store install. The targeted fix is the headline feature of v2.1.0.</p>
+      <p><strong>Coming next:</strong></p>
+      <ul>
+        <li><strong>v2.1.0:</strong> Aurora Privileged Extension reliability fix with a dedicated post boot self heal pass that detects every Aurora Services PMS state and remediates each.</li>
+        <li><strong>v2.2.0:</strong> bundled Play Integrity Fix so apps requiring attestation (banking apps, Pokemon Go, some streaming services) pass without a separate module flash. SafetyNet self check inside microG will go green.</li>
+      </ul>
+      <p>The DresOS Android guide has been updated end to end. Step 5 (Install Magisk Modules), Step 6 (Set Up microG, renamed from Set Up Noogle microG), the SECURITY_ARCHITECTURE.md Layer 8 entry, the What You Will Need table, and the Magisk Modules Roadmap all reflect the new module.</p>
+      <p>With microG out the door, work begins next on the Permissions Hardener module (<strong>dresosperms</strong>). It will revoke dangerous permissions from system apps at flash time. Updates posted in this tab as development progresses.</p>
+      <p><strong>We rely on community testing.</strong> If you flash v2.0.0 and something breaks, please open a bug report at <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/issues" target="_blank">github.com/DresOperatingSystems/DresOS-Magisk-Modules/issues</a> with device model, Android version, ROM, root provider, the output of the Action button on the module, and the three logs at <code>/data/adb/modules/dresosmicrog/logs/</code>.</p>
+    </article>
 
     <article class="card">
       <h3>May 15, 2026 - AOSmium WebView v2.1.0 Released, MicroG Module Next</h3>
@@ -447,7 +456,8 @@
     <h3>Module Repository</h3>
     <div class="link-row">
       <a class="link-btn" href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules" target="_blank">GitHub Repo</a>
-      <a class="link-btn" href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/releases/latest" target="_blank">Latest Release</a>
+      <a class="link-btn" href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/releases/tag/microg-v2.0.0" target="_blank">microG v2.0.0</a>
+      <a class="link-btn" href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/releases/latest" target="_blank">AOSmium Latest</a>
     </div>
 
     <h3>Released Modules</h3>
@@ -477,24 +487,41 @@
           <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules" target="_blank">Source</a>
         </div>
       </div>
+
+      <div class="module-card">
+        <div class="module-id">dresosmicrog <span class="badge">v2.0.0</span></div>
+        <div class="module-name">DresOS microG</div>
+        <div class="module-desc">
+          Systemless microG suite as a single Magisk flash. Replaces Google Play Services without Google's proprietary code or servers. Bundles microG GmsCore 0.3.7.250932, microG Companion (FakeStore at com.android.vending), microG GsfProxy, microG DroidGuard Helper, and Aurora Store as a user app.
+          <br><br>
+          Signature spoofing is bundled as a Zygisk hook scoped to the microG process only, so on arm64 and x86_64 LSPosed is NOT required. APKs and matching privapp permissions XML land in the same partition (product on API 28 plus, system on API 26 and 27), satisfying Android 11 plus same partition enforcement. Cert identity is verified post boot via cmd package dump reading the X.509 SHA-256 PMS itself computes.
+          <br><br>
+          Runtime Google debloat via pm disable-user, persisted in package-restrictions.xml, reversible by uninstall. No directory level replace markers on priv-app dirs, so the Android 14 plus ART OAT cache stays intact. Per component bootloop sentinel disables only the broken piece on third strike rather than the entire module.
+          <br><br>
+          ROMs that already ship a working upstream signed microG (CalyxOS, LineageOS for microG, iodeOS, /e/OS) are autodetected by cert match and the ROM's copy is preserved. GrapheneOS is hard refused.
+          <br><br>
+          <strong>Known issue in v2.0.0:</strong> the Aurora Privileged Extension (com.aurora.services) does not always land as a system priv app on every device. Aurora Store itself works fine. Targeted fix is the headline feature of v2.1.0. SafetyNet and Play Integrity will not pass in v2.0.0 either; the Play Integrity Fix is the headline feature of v2.2.0.
+          <br><br>
+          <strong>Requirements:</strong> Magisk 24.0 or newer with Zygisk enabled, or KernelSU / APatch with ZygiskNext / ReZygisk. Android 8.0 through 16. arm64 or x86_64 for the bundled Zygisk spoof; any ABI installs without it.
+        </div>
+        <div class="module-links">
+          <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/releases/tag/microg-v2.0.0" target="_blank">Download</a>
+          <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/tree/main/microg" target="_blank">Source</a>
+        </div>
+      </div>
     </div>
 
     <h3>Planned Modules</h3>
     <div class="module-grid">
       <div class="module-card">
-        <div class="module-id">dresosmicrog <span class="badge soon">Planned</span></div>
-        <div class="module-name">Noogle microG Installer</div>
-        <div class="module-desc">Replaces Google Play Services with microG for app compatibility without Google tracking.</div>
+        <div class="module-id">dresosperms <span class="badge soon">In active development</span></div>
+        <div class="module-name">Permissions Hardener</div>
+        <div class="module-desc">Revokes dangerous permissions from system apps at flash time. Next module on the roadmap.</div>
       </div>
       <div class="module-card">
         <div class="module-id">dresosdebloat <span class="badge soon">Planned</span></div>
         <div class="module-name">DresOS System Debloater</div>
         <div class="module-desc">Systemlessly removes core Google apps and system bloat in one flash.</div>
-      </div>
-      <div class="module-card">
-        <div class="module-id">dresosperms <span class="badge soon">Planned</span></div>
-        <div class="module-name">Permissions Hardener</div>
-        <div class="module-desc">Revokes dangerous permissions from system apps at flash time.</div>
       </div>
       <div class="module-card">
         <div class="module-id">dresosafwall <span class="badge soon">Planned</span></div>
@@ -659,7 +686,7 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
     <div class="card">
       <ul>
         <li><a href="https://github.com/DresOperatingSystems/DresOS-The-Android-Defensive-Security-System" target="_blank">DresOS-The-Android-Defensive-Security-System</a> - The complete unified DresOS Android guide. DeGoogling, OPSEC stack, Magisk modules, defensive app suite, Security Architecture, and Changelog.</li>
-        <li><a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules" target="_blank">DresOS-Magisk-Modules</a> - Magisk modules automating the DresOS build. Current release: AOSmium WebView v2.1.0. MicroG module in development.</li>
+        <li><a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules" target="_blank">DresOS-Magisk-Modules</a> - Magisk modules automating the DresOS build. Current releases: AOSmium WebView v2.1.0 and DresOS microG v2.0.0. Permissions Hardener (dresosperms) in active development.</li>
       </ul>
     </div>
 
@@ -746,7 +773,7 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 </main>
 
 <footer>
-  <p>Copyright &copy; 2026 DresOS. Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.  |  <a href="https://github.com/DresOperatingSystems/DresOperatingSystems.github.io" target="_blank">Website Source</a>  |  <a href="https://github.com/DresOperatingSystems" target="_blank">GitHub</a></p>
+  <p>Copyright &copy; 2026 DresOS. Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.  |  <a href="https://github.com/DresOperatingSystems/DresOperatingSystems.github.io" target="_blank">Website Source</a>  |  <a href="https://github.com/DresOperatingSystems" target="_blank">GitHub</a>  |  <a href="https://ko-fi.com/dresos" target="_blank">☕ Donate</a></p>
 </footer>
 
 <script>
