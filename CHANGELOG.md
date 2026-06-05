@@ -1,3 +1,17 @@
+## [Unreleased] - June 5, 2026
+
+### Changed
+- DresOS Android tab: added the Motorola Moto g32 video demo (Streamable embed, phone-proportioned) above the build guide links, with Watch on Ko-fi and Open Video buttons
+- Magisk Modules tab: dresosmicrog module card updated to v3.0.0 - pure file overlay, no Zygisk and no LSPosed, ROM-provided signature spoofing, GmsCore 0.3.15, Aurora Services as a priv-app for silent installs, bootloop-safe; download link now points at microg-v3.0.0
+- Welcome "What we do" bullet and GitHub Projects blurb: current releases updated to AOSmium WebView v2.2.0 and DresOS microG v3.0.0
+- Updates tab: the May 25 microG entry was trimmed of the unreleased v2.1.0 and v2.2.0 roadmap and the Noogle naming; the Aurora Services note now points to the v3.0.0 resolution
+- DresOS Defensive App Suite: every version-pinned download link replaced with a stable F-Droid package page or GitHub releases-latest link
+- "What the System Includes": app suite count updated from 16 to 19
+
+### Added
+- New June 5, 2026 Updates entry announcing the DresOS microG v3.0.0 rebuild and the guide refresh (Aves Libre gallery, Stratum 2FA, Tuta Calendar, HeliBoard design, link audit, video demo)
+- DresOS Defensive App Suite cards for Aves Libre (gallery), Stratum (offline 2FA), and Tuta Calendar (encrypted calendar)
+
 ## [Unreleased]
 
 ### Changed
