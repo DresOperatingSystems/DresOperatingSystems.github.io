@@ -23,7 +23,7 @@
 
   <!-- General meta -->
   <meta name="description" content="DresOS is an open source security organization. We build privacy focused Android systems, Magisk modules, Kali Linux tools, and Telegram bots." />
-  <meta name="keywords" content="DresOS, Android privacy, deGoogled Android, Magisk modules, AOSmium WebView, InviZible Pro, open source security, Linux" />
+  <meta name="keywords" content="DresOS, Android privacy, deGoogled Android, Magisk modules, DresOS WebView, InviZible Pro, open source security, Linux" />
   <meta name="author" content="DresOperatingSystems" />
   <meta name="theme-color" content="#00e676" />
 
@@ -353,7 +353,7 @@
     <div class="card">
       <ul>
         <li><strong>DresOS Android</strong> - A complete guide to build your own fully private, deGoogled Android system using TWRP, Magisk, microG, and the full DresOS defensive app suite</li>
-        <li><strong>Magisk Modules</strong> - Automating the DresOS Android build process one module at a time. Current releases: AOSmium WebView v2.2.0, DresOS microG v3.0.0. Next module in development: Permissions Hardener (dresosperms).</li>
+        <li><strong>Magisk Modules</strong> - Automating the DresOS Android build process one module at a time. Current releases: DresOS WebView v2.2.0, DresOS microG v3.0.1. Next module in development: Permissions Hardener (dresosperms).</li>
         <li><strong>DresOS: The Defensive Security Distro</strong> - Our upcoming Linux defensive security distribution, coming late 2026</li>
         <li><strong>Open Source Tools</strong> - Kali Linux tools, Telegram bots, Android utilities, all on GitHub</li>
       </ul>
@@ -374,8 +374,27 @@
     <h2>Updates</h2>
 
     <article class="card">
+      <h3>June 19, 2026 - The Biggest DresOS Update Yet</h3>
+      <p>This is one of the largest coordinated updates DresOS has shipped. The whole system WebView path is now DresOS's own from source to signature, microG gained an automatic update pipeline, and the entire DresOS Android guide and security architecture were rewritten to match. Here is everything in one place.</p>
+
+      <p><strong>DresOS WebView - our own system WebView engine.</strong> DresOS now ships its own system WebView. <strong>DresOS WebView</strong> is a Chromium engine built from Cromite (Chromium 145.0.7632.120), with Google services and telemetry stripped and Cromite's privacy and security hardening throughout. It replaces the previous third party WebView engine entirely. Where that engine was someone else's build, DresOS WebView is our own, signed with the DresOS release key, so the whole WebView path is under DresOS end to end.</p>
+
+      <p>It installs the same proven way as before: the signed APK is placed in the systemless tree at <code>system/product/app/</code> via Magisk magic mount, a static RRO adds the package plus the DresOS certificate to <code>config_webview_packages</code>, and service.sh promotes it to the active provider with <code>cmd webviewupdate set-webview-implementation</code> after boot complete, verified via dumpsys. The post-fs-data bootloop sentinel and the inert mode fallback carry over, so a failed activation can never bootloop the device, and removing the module restores the stock WebView. Flashing it over the previous WebView module updates in place, with nothing to uninstall first.</p>
+
+      <p>The engine is also published on its own as a standalone signed APK, <strong>DresOS WebView v1.0.0</strong>, with IzzyOnDroid and Obtainium support, so it can be installed and kept up to date independently of the module.</p>
+
+      <p><strong>DresOS microG v3.0.1 - now self-updating.</strong> The DresOS microG module has been bumped to v3.0.1. A weekly GitHub Actions pipeline now pulls the latest officially signed microG core (GmsCore, Companion, GsfProxy) straight from the official microG F-Droid repo and auto-bumps the module whenever upstream changes, so microG stays current without a manual rebuild. The bundled APKs and the install logic are unchanged, and it remains the same bootloop-safe pure file overlay with ROM-provided signature spoofing.</p>
+
+      <p><strong>The guide and security architecture, rewritten end to end.</strong> The full DresOS Android Defensive Security guide, the SECURITY_ARCHITECTURE diagram, and the system changelog were all updated to the new WebView engine and microG v3.0.1. Step 7, the Part 3 app suite, the What You Will Need table, the Replacement Overview, and the Layer 5 WebView diagram now describe DresOS WebView and <code>org.dresos.webview</code> throughout.</p>
+
+      <p><strong>Requirements (WebView module):</strong> Magisk 29.0 or newer, Android 10 through 16, arm64. After flashing, verify with <code>adb shell dumpsys webviewupdate</code>; the active provider should be <code>org.dresos.webview</code>.</p>
+
+      <p><strong>We rely on community testing.</strong> If you flash any of this and something breaks, please open a bug report at <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/issues" target="_blank">github.com/DresOperatingSystems/DresOS-Magisk-Modules/issues</a> with device model, Android version, ROM, root provider, and the logs at <code>/data/adb/modules/dresoswv/logs/</code>.</p>
+    </article>
+
+    <article class="card">
       <h3>June 5, 2026 - DresOS microG v3.0.0 Released</h3>
-      <p>The DresOS microG Magisk module has been rebuilt from the ground up and released as <strong>v3.0.0</strong>, replacing the v2.0.0 design entirely. v3.0.0 is a pure file overlay: no Zygisk payload, no Xposed or LSPosed dependency, and no boot-time PackageManager work, which means it physically cannot bootloop the device and it coexists cleanly with the AOSmium WebView module.</p>
+      <p>The DresOS microG Magisk module has been rebuilt from the ground up and released as <strong>v3.0.0</strong>, replacing the v2.0.0 design entirely. v3.0.0 is a pure file overlay: no Zygisk payload, no Xposed or LSPosed dependency, and no boot-time PackageManager work, which means it physically cannot bootloop the device and it coexists cleanly with the DresOS WebView module.</p>
       <p>It ships the officially signed microG suite as privileged system apps under <code>product</code>: GmsCore 0.3.15, Companion (FakeStore at <code>com.android.vending</code>), GsfProxy, DroidGuard Helper, Aurora Store, and Aurora Services, with a privapp permissions allowlist generated from the bundled manifests.</p>
       <p>Signature spoofing is now provided by the ROM rather than by the module. Because the bundled microG APKs carry the official microG key, any ROM with microG signature spoofing support spoofs them automatically once they are placed in priv-app. There is no bundled hook and no Xposed framework on any ABI.</p>
       <p>Aurora Services now lands as a priv-app with its own permissions allowlist, so silent prompt-free installs through Aurora Store work without the standard Android installer prompt for every app. This resolves the v2.0.0 Aurora Privileged Extension issue. ROMs that already ship an upstream signed microG (CalyxOS, LineageOS for microG, iodeOS, /e/OS) are autodetected by cert match and their copy is preserved. GrapheneOS is hard refused.</p>
@@ -399,39 +418,10 @@
     </article>
 
     <article class="card">
-      <h3>May 15, 2026 - AOSmium WebView v2.1.0 Released, MicroG Module Next</h3>
-      <p>The AOSmium WebView Magisk module has been rewritten from the ground up and released as v2.1.0.</p>
-      <p>The previous v1.0.0 flashed cleanly on Motorola Moto G32 and similar devices but bootlooped Pixel 9 and several LineageOS builds because it relied on pm install at flash time (the data partition is not yet mounted at that stage on some LineageOS builds) and hid the OEM WebView via Magisk .replace markers, leaving devices without a fallback provider when AOSmium failed to load. Later versions removed the bootloop but never actually activated AOSmium, because the bundled overlay APK was plain text XML rather than a properly compiled binary AXML overlay, and the overlay targeted com.android.webview instead of the framework android package where config_webview_packages actually lives.</p>
-      <p>v2.1.0 is a complete redesign of the activation pipeline. The overlay is now a properly compiled RRO signed with v1, v2, and v3 schemes, with the AXP.OS ECDSA certificate embedded as a base64 DER block in the signature element of config_webview_packages.xml. The AOSmium APK is placed in the systemless tree at system/product/app/AOSmiumWebView/ via Magisk magic mount, satisfying the framework MATCH_FACTORY_ONLY scan without any pm install. Activation runs in service.sh after sys.boot_completed via cmd webviewupdate set-webview-implementation, with a settings put global webview_provider fallback write and a dumpsys verification step.</p>
-      <p>Two layers of bootloop safety were added. post-fs-data.sh drops a boot_pending marker on every boot which service.sh clears on success; a stale marker on the next boot means the previous boot crashed before activation completed, and the module auto-disables itself by touching disable. service.sh also flips the module into inert mode on any activation failure to prevent retry storms.</p>
-      <p>The module has been confirmed working on the following devices:</p>
-      <ul>
-        <li>Motorola Moto G32 on LineageOS Android 15</li>
-        <li>Motorola ThinkPhone on Stock Android 15</li>
-        <li>Motorola Moto G7 Plus on Stock Android 10</li>
-        <li>Motorola Moto G7 Plus on LineageOS Android 15</li>
-        <li>Samsung Galaxy A05s on Stock Android 10</li>
-      </ul>
-      <p>x86 and x86_64 are not supported because AXP.OS does not publish WebView builds for those ABIs.</p>
-      <p>With AOSmium WebView now stable, work begins next on the MicroG module (<strong>dresosmicrog</strong>). This will replace Google Play Services with MicroG for app compatibility without Google's tracking infrastructure, all in a single Magisk flash. Updates to follow in this tab as development progresses.</p>
-    </article>
-
-    <article class="card">
       <h3>May 12, 2026 - First Official Website Update: DresEcoVerse Archived</h3>
       <p>The DresEcoVerse has been officially closed down. We now maintain this actively updated website where all our resources, guides, and announcements can be found in one place. This is easier for everyone to navigate and keeps everything centralized.</p>
       <p>With our focus now on the <strong>already released</strong> DresOS Magisk Modules for our Android Defensive Security System build, and with the full app list included directly in the DresOS Android guide, there is no longer a need for the EcoVerse as a separate hub.</p>
       <p><strong>Important:</strong> The only official DresOS presence on Telegram now is our bot <strong>@DresosIbot</strong>. Always check this website for link authenticity and official announcements.</p>
-    </article>
-
-    <article class="card">      <h3>April 30, 2026 - A Message to Our Supporters</h3>
-      <p>Hello to all our supporters,</p>
-      <p>The past two years with DresOS have been incredible, and we can't thank you enough for the love and support you've shown us.</p>
-      <p>As times change, we've decided to scale things back. With our first Magisk module for the defensive security guide now released, activity at DresOS will slow down significantly. From that point on, our bot will handle running and updating everything.</p>
-      <p>The reason for this shift is that we're launching a sister organization focused on AI engineering specifically models built around antivirus, security, encryption, FOSS app development, and related areas. You can check out the security model currently powering our bot.</p>
-      <p>Stepping into AI engineering also means we can no longer keep everything fully open source. To stay true to DresOS's core values and our commitment to open-source principles, we're creating a new organization called ZeusAI.</p>
-      <p>Stay tuned for more updates coming soon!</p>
-      <p><em>The DresOS Team</em></p>
-      <p>Here is the link to our sister organisation so if you can join and support it, It would be much appreciated <a class="link-btn" href="https://t.me/+Oe3llA2cwZoxYjk8" target="_blank">⚡ ZeusAI</a></p>
     </article>
 
     <article class="card">
@@ -468,37 +458,35 @@
     <div class="module-grid">
       <div class="module-card">
         <div class="module-id">dresoswv <span class="badge">v2.2.0</span></div>
-        <div class="module-name">DresOS AOSmium WebView</div>
+        <div class="module-name">DresOS WebView</div>
         <div class="module-desc">
-          Replaces Android's system WebView with AOSmium - a Chromium fork hardened with GrapheneOS and Vanadium security patches. The system WebView is the browser engine used internally by hundreds of apps whenever they render web content. Google's version phones home on every render. This module replaces it in a single Magisk flash.
+          Replaces Android's system WebView with DresOS WebView, a Chromium engine built from Cromite with Google services and telemetry stripped and Cromite's privacy and security hardening throughout. The system WebView is the browser engine used internally by hundreds of apps whenever they render web content. Google's version phones home on every render. This module replaces it in a single Magisk flash with DresOS's own engine, signed with the DresOS release key.
           <br><br>
-          How it works: a static RRO is placed in the systemless overlay partition to add AOSmium plus the AXP.OS signing certificate to config_webview_packages, the AOSmium APK is dropped into the systemless system tree via Magisk magic mount, and after boot complete service.sh runs cmd webviewupdate set-webview-implementation to promote AOSmium to the active provider. Activation is verified via dumpsys. Two layers of bootloop safety sit on top: a post-fs-data sentinel that auto-disables the module if a previous boot crashed, and an inert mode flag that prevents retry storms on activation failure.
+          How it works: a static RRO is placed in the systemless overlay partition to add DresOS WebView plus the DresOS signing certificate to config_webview_packages, the DresOS WebView APK is dropped into the systemless system tree via Magisk magic mount, and after boot complete service.sh runs cmd webviewupdate set-webview-implementation to promote it to the active provider. Activation is verified via dumpsys. Two layers of bootloop safety sit on top: a post-fs-data sentinel that auto-disables the module if a previous boot crashed, and an inert mode flag that prevents retry storms on activation failure.
           <br><br>
           <strong>Confirmed working devices:</strong>
           <ul>
-            <li>Motorola Moto G32 on LineageOS Android 15</li>
-            <li>Motorola ThinkPhone on Stock Android 15</li>
-            <li>Motorola Moto G7 Plus on Stock Android 10</li>
-            <li>Motorola Moto G7 Plus on LineageOS Android 15</li>
-            <li>Samsung Galaxy A05s on Stock Android 10</li>
+            <li>Motorola Moto g32 on LineageOS Android 16</li>
           </ul>
-          <strong>Requirements:</strong> Magisk 24.0 or newer, Android 10 through 15, arm or arm64.
+          <strong>Requirements:</strong> Magisk 29.0 or newer, Android 10 through 16, arm64.
           <br><br>
-          After flashing: reboot, then verify with adb shell dumpsys webviewupdate. The active provider should be org.axpos.aosmium_wv.
+          The engine is also available on its own as a standalone signed APK with IzzyOnDroid and Obtainium support.
+          <br><br>
+          After flashing: reboot, then verify with adb shell dumpsys webviewupdate. The active provider should be org.dresos.webview.
         </div>
         <div class="module-links">
-          <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/releases/download/aosmium-webview-v2.2.0/DresOS-AOSmium-WebView-v2_2_0.zip" target="_blank">Download</a>
-          <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/tree/main/aosmium-webview" target="_blank">Source</a>
+          <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/releases/download/webview-v2.2.0/DresOS-WebView-v2_2_0.zip" target="_blank">Download</a>
+          <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/tree/main/webview" target="_blank">Source</a>
         </div>
       </div>
 
       <div class="module-card">
-        <div class="module-id">dresosmicrog <span class="badge">v3.0.0</span></div>
+        <div class="module-id">dresosmicrog <span class="badge">v3.0.1</span></div>
         <div class="module-name">DresOS microG</div>
         <div class="module-desc">
           Systemless microG suite as a single Magisk flash. Replaces Google Play Services without Google's proprietary code or servers. Ships the officially signed microG GmsCore 0.3.15, microG Companion (FakeStore at com.android.vending), microG GsfProxy, microG DroidGuard Helper, Aurora Store, and Aurora Services as privileged system apps under product, with a privapp permissions allowlist generated from the bundled manifests.
           <br><br>
-          v3.0.0 is a pure file overlay: no Zygisk payload, no Xposed or LSPosed dependency, and no boot-time PackageManager work. It physically cannot bootloop the device and it coexists cleanly with the AOSmium WebView module. Signature spoofing is provided by the ROM, not the module: because the bundled microG APKs carry the official microG key, any ROM with microG signature spoofing support spoofs them automatically once they are placed in priv-app.
+          v3.0.1 keeps the same bootloop-safe pure file overlay design: no Zygisk payload, no Xposed or LSPosed dependency, and no boot-time PackageManager work. It physically cannot bootloop the device and it coexists cleanly with the DresOS WebView module. New in v3.0.1, a weekly GitHub Actions pipeline pulls the latest officially signed microG core from the official microG F-Droid repo and auto-bumps the module when upstream changes; the bundled APKs and install logic are unchanged. Signature spoofing is provided by the ROM, not the module: because the bundled microG APKs carry the official microG key, any ROM with microG signature spoofing support spoofs them automatically once they are placed in priv-app.
           <br><br>
           Aurora Services lands as a priv-app with its own permissions allowlist, so silent prompt-free installs through Aurora Store work without the standard Android installer prompt for every app. Cert identity is verified post boot via cmd package dump reading the X.509 SHA-256 that PackageManager itself computes.
           <br><br>
@@ -507,7 +495,7 @@
           <strong>Requirements:</strong> Magisk, KernelSU, or APatch. Android 8.0 through 16. Any ABI. Signature spoofing is provided by the ROM, so no Zygisk or Xposed framework is required.
         </div>
         <div class="module-links">
-          <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/releases/tag/microg-v3.0.0" target="_blank">Download</a>
+          <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/releases/tag/microg-v3.0.1" target="_blank">Download</a>
           <a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules/tree/main/microg" target="_blank">Source</a>
         </div>
       </div>
@@ -579,7 +567,7 @@
     <h3>What the System Includes</h3>
     <div class="card">
       <ul>
-        <li><strong>Part 1 - DeGoogling</strong> - Full root method: TWRP, Magisk, DresOS microG module, AOSmium WebView via Magisk module, Shizuku, system debloat, FOSS app replacements</li>
+        <li><strong>Part 1 - DeGoogling</strong> - Full root method: TWRP, Magisk, DresOS microG module, DresOS WebView via Magisk module, Shizuku, system debloat, FOSS app replacements</li>
         <li><strong>Part 2 - Operational Security</strong> - InviZible Pro proxy and root mode (Tor + I2P + DNSCrypt), AFWall+ kernel firewall, Tuta Mail with Duck Address email setup, GPS spoofing via Fake Traveler</li>
         <li><strong>Part 3 - DresOS Defensive App Suite</strong> - 19 apps fully documented with setup, features, and usage instructions</li>
       </ul>
@@ -652,7 +640,7 @@
     <div class="card">
       <ul>
         <li>Removes all Google services and tracking from the device</li>
-        <li>Replaces system WebView with AOSmium via Magisk module - GrapheneOS hardened Chromium</li>
+        <li>Replaces system WebView with DresOS WebView via Magisk module - Cromite-based hardened Chromium</li>
         <li>Routes all traffic through Tor via InviZible Pro proxy and root mode</li>
         <li>Encrypts all DNS queries via DNSCrypt enforced at kernel level via iptables</li>
         <li>Blocks in-app trackers via DuckDuckGo App Tracking Protection</li>
@@ -711,7 +699,7 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
     <div class="card">
       <ul>
         <li><a href="https://github.com/DresOperatingSystems/DresOS-The-Android-Defensive-Security-System" target="_blank">DresOS-The-Android-Defensive-Security-System</a> - The complete unified DresOS Android guide: DeGoogling, OPSEC stack, Magisk modules, defensive app suite, security architecture, and changelog. (8 stars)</li>
-        <li><a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules" target="_blank">DresOS-Magisk-Modules</a> - Magisk modules automating the DresOS build. Current releases: AOSmium WebView v2.2.0 and DresOS microG v3.0.0; Permissions Hardener (dresosperms) in development. (Shell, 7 stars)</li>
+        <li><a href="https://github.com/DresOperatingSystems/DresOS-Magisk-Modules" target="_blank">DresOS-Magisk-Modules</a> - Magisk modules automating the DresOS build. Current releases: DresOS WebView v2.2.0 and DresOS microG v3.0.1; Permissions Hardener (dresosperms) in development. (Shell, 7 stars)</li>
         <li><a href="https://github.com/DresOperatingSystems/Android-Degoogling" target="_blank">Android-Degoogling</a> - The original rooted degoogling guide, now merged into the unified DresOS guide. (Archived, 7 stars)</li>
         <li><a href="https://github.com/DresOperatingSystems/Android-opsec" target="_blank">Android-opsec</a> - The original on-device OPSEC guide, now merged into the unified DresOS guide. (Archived, 3 stars)</li>
       </ul>
