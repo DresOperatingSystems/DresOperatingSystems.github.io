@@ -374,6 +374,14 @@
     <h2>Updates</h2>
 
     <article class="card">
+      <h3>June 23, 2026 - DresSecureComms, the DresOS Secure Communications App</h3>
+      <p>DresOS now has its own secure communications app. <strong>DresSecureComms</strong> is a single, FOSS, fully de-Googled app that brings private messaging, calling, contacts, link threat-scanning, photo metadata wiping, and location spoofing together in one place, built and signed by DresOS with no Google services and no trackers.</p>
+      <p>It can be set as your default SMS and phone app. Messaging is a private offline SMS client with optional per-message AES-256-GCM encryption, readable only by another DresSecureComms user who shares the key. The dialer is a full default phone app with its own in-call screen - mute, speaker, keypad, hold, add call - plus a deletable call history and caller ID and spam screening. Contacts live in an encrypted on-device vault with add, edit, and import. Threat Scan checks any link against VirusTotal and returns a clear safe, suspicious, or dangerous verdict. There is also a photo metadata wiper, a geo spoofer for mock locations, an app lock, and an app-wide block-screenshots mode.</p>
+      <p>In the DresOS Android system it consolidates several separate tools into one app, taking over URL Check, the Fossify Phone, Messages, and Contacts apps, and Fake Traveler. A future update will extend its scanning engine to media, files, APKs, and ZIPs, taking over the Hypatia role; that engine is under wraps for now.</p>
+      <p>Source and releases: <a href="https://github.com/DresOperatingSystems/DresSecureComms" target="_blank">github.com/DresOperatingSystems/DresSecureComms</a>.</p>
+    </article>
+
+    <article class="card">
       <h3>June 19, 2026 - The Biggest DresOS Update Yet</h3>
       <p>This is one of the largest coordinated updates DresOS has shipped. The whole system WebView path is now DresOS's own from source to signature, microG gained an automatic update pipeline, and the entire DresOS Android guide and security architecture were rewritten to match. Here is everything in one place.</p>
 
@@ -575,6 +583,11 @@
 
     <h3>DresOS Defensive App Suite</h3>
     <div class="app-list">
+      <div class="app-item">
+        <strong>DresSecureComms</strong>
+        <span>The DresOS secure communications app. Private SMS with optional AES-256 encryption, a full default dialer with in-call controls and call history, caller ID and spam screening, an encrypted contacts vault, VirusTotal link scanning, photo metadata wiping, and a geo spoofer. No Google services, built and signed by DresOS. Replaces URL Check, Fossify Phone, Messages and Contacts, and Fake Traveler.</span>
+        <a href="https://github.com/DresOperatingSystems/DresSecureComms" target="_blank">GitHub</a>
+      </div>
       <div class="app-item">
         <strong>Amaze File Manager</strong>
         <span>Open source file manager with built-in AES-256 encryption, biometric lock, root explorer, and APK management. Replaces Fossify Files and ZArchiver Pro.</span>
