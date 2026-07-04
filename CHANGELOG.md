@@ -1,4 +1,24 @@
-## [Unreleased] - June 5, 2026
+## July 3, 2026
+
+### Changed
+- Rebranded across the site: DresOperatingSystems is now The DresOS Foundation (header, meta author, footer copyright, license block)
+- Canonical URL moved to https://dresos.org (og:url, license block); contact email is now security@dresos.org
+- The DresOS Android guide repository links repointed at github.com/The-DresOS-Foundation; every other repository link stays on the original account until those repos complete the move
+- Magisk Modules tab info block corrected: DresSecureComms was never shut down, the system ships as Magisk modules and standalone FOSS apps
+- Welcome and GitHub Projects current-release mentions bumped to DresOS microG v3.1.1
+- DresSecureComms cards updated for v1.6.0: SMS and MMS picture messaging, IzzyOnDroid link added alongside GitHub
+- Styling consolidated: the site theme now lives in styles.css and is linked from index.html, replacing the stale unused stylesheet and the inline style block; malformed CSS and HTML lines normalised
+
+### Added
+- New July 3, 2026 Updates entry covering The DresOS Foundation organisation move, the dresos.org domain and security@dresos.org address, DresSecureComms 1.6.0 (end-to-end picture messaging, instant sent-message history, larger in-call controls, notification Copy action, IzzyOnDroid listing, clean VirusTotal scan, PGP/age/SSH ED25519 signing roadmap, Fossify thanks), and DresOS microG v3.1.1 (Google-signed path removed, honest version-aware signature spoofing guidance)
+- GitHub Projects tab note explaining the organisation move and that old links redirect
+- Fake Traveler credit in the July 3 update entry: the mock location components are built on references from their application
+- URL Check credit in the July 3 update entry: for the scan part that connects to VirusTotal, which our scan engine was built from
+
+### Removed
+- Motorola-moto-g32-recovery-mode listing from GitHub Projects
+
+## June 5, 2026
 
 ### Changed
 - DresOS Android tab: added the Motorola Moto g32 video demo (Streamable embed, phone-proportioned) above the build guide links, with Watch on Ko-fi and Open Video buttons
@@ -12,7 +32,7 @@
 - New June 5, 2026 Updates entry announcing the DresOS microG v3.0.0 rebuild and the guide refresh (Aves Libre gallery, Stratum 2FA, Tuta Calendar, HeliBoard design, link audit, video demo)
 - DresOS Defensive App Suite cards for Aves Libre (gallery), Stratum (offline 2FA), and Tuta Calendar (encrypted calendar)
 
-## [Unreleased]
+## May 25, 2026
 
 ### Changed
 - Magisk Modules tab: DresOS microG (`dresosmicrog`) moved from Planned Modules to Released Modules
@@ -28,7 +48,7 @@
 - New Donate section in the Welcome tab with the Ko-fi button and a short explanation of where the funds go (test devices, hosting, developer time on the next Magisk module)
 - Footer donate link to ko-fi.com/dresos so the donation path is reachable from every tab
 
-## [Unreleased]
+## May 15, 2026
 
 ### Changed
 - AOSmium WebView module card updated from v1.0.0 to v2.1.0:
@@ -54,7 +74,7 @@
   - Confirmed working devices list
   - Announcement that work begins next on the MicroG module (dresosmicrog)
 
-## Previous Unreleased
+## May 12, 2026
 
 ### Changed
 - Replaced DresEcoVerse tab with Updates tab in navigation
