@@ -1,3 +1,9 @@
+## July 5, 2026
+
+### Changed
+- Replaced the two wallpapers with the new DresOS lock and circuit designs, now self-hosted in the repo under images/ instead of an external image host
+- Link preview (Open Graph and Twitter card) now uses a dedicated 1200x630 preview built from the circuit design, self-hosted on dresos.org
+
 ## July 3, 2026
 
 ### Changed
@@ -17,6 +23,7 @@
 
 ### Removed
 - Motorola-moto-g32-recovery-mode listing from GitHub Projects
+- All HTML comments across the page
 
 ## June 5, 2026
 
