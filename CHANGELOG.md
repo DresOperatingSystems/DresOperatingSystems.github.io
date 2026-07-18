@@ -1,3 +1,9 @@
+## July 18, 2026
+
+### Changed
+- made major announcement
+- updated website to fit in around the new major announcement
+
 ## July 5, 2026
 
 ### Changed
