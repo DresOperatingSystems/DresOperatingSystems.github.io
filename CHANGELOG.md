@@ -1,3 +1,9 @@
+## July 23, 2026
+
+### Changed
+
+Updated our terms of service to fit within the current Dres ecosystem, updated the DresOS Android tab around the actual system repo along with other minor website changes.
+
 ## July 18, 2026
 
 ### Changed
@@ -8,7 +14,7 @@
 
 ### Changed
 - Replaced the two wallpapers with the new DresOS lock and circuit designs, now self-hosted in the repo under images/ instead of an external image host
-- Link preview (Open Graph and Twitter card) now uses a dedicated 1200x630 preview built from the circuit design, self-hosted on dresos.org
+- Link preview (Open Graph and Twitter card) now uses a dedicated 1200x630 preview built from the circuit design, self hosted on dresos.org
 
 ## July 3, 2026
 
