@@ -1,3 +1,23 @@
+## July 30, 2026
+
+### Added
+- New update entry covering DresSecureComms 1.8.1, the scan engine gaining the option to send a file to VirusTotal, the coming automation on the module repos, and the short break before the Linux distro build starts
+- DresOS-WebView added to the GitHub Projects tab, the one repository that was missing from it
+
+### Changed
+- Star counts refreshed from the GitHub API across every listed repository: guide 26 to 29, Magisk Modules 16 to 18, Android-Degoogling 7 to 11, Third-Party-Kali-Nethunter-Build 8 to 9, DresSecureComms now listed at 23
+- Third-Party-Kali-Nethunter-Build and kali-linux-private-network-setup now marked archived, which they are
+- DresTermuxAI link repointed at The DresOS Foundation, which is where it now lives
+- Versions brought current everywhere: DresSecureComms 1.8.0 to 1.8.1 and microG v3.1.3 to v3.1.4, including the module download link and the module card description
+- microG module card no longer lists DroidGuard Helper, as microG folded it into GmsCore upstream and it is not bundled
+- WebView module requirements corrected from Magisk 29.0 and arm64 to Magisk 24.0 and arm or arm64, matching the module README, both on the module card and in the June 19 announcement
+- Terms of service privacy section now states that file scanning uploads a file only when you choose to send that one file, since the app can now do that
+- The retired defensive app suite wording replaced in the Welcome and DresOS Android tabs
+- Distro tab and the Welcome tab now say the same thing about when the distro build starts
+- Open Graph and Twitter descriptions no longer mention bots, which we no longer run
+- Confirmed working devices now include the Google Pixel 9 Pro XL on LineageOS 23.2 and the Samsung Galaxy J6 (J600F) on stock Android 10 with One UI 2.0
+- The standalone DresOS WebView APK is no longer described as being on IzzyOnDroid or having Obtainium support. It is too large for IzzyOnDroid, so its own GitHub releases page is the only place it is distributed, and both the module card and the June 19 announcement now say that and link to it
+
 ## July 23, 2026
 
 ### Changed
