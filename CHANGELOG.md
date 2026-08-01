@@ -1,8 +1,8 @@
 ## August 1, 2026
 
 ### Added
-- New update entry for microG v3.1.5 and WebView v2.2.1, covering the bundled app automation going live, the pinned signing keys, WebView becoming arm64 only, and what is planned next
-- Modules tab now states the plan: a 32 bit WebView engine build, then an automatic build and release workflow for the WebView module
+- New update entry for microG v3.1.5 and WebView v2.2.1, covering the bundled app automation going live, the pinned signing keys, and what is planned next
+- Modules tab now states the plan: an automatic build and release workflow for the WebView module
 
 ### Changed
 - Module versions and download links moved to WebView v2.2.1 and microG v3.1.5 on the modules tab, the welcome tab and the projects tab
