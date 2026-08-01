@@ -1,3 +1,14 @@
+## August 1, 2026
+
+### Added
+- New update entry for microG v3.1.5 and WebView v2.2.1, covering the bundled app automation going live, the pinned signing keys, WebView becoming arm64 only, and what is planned next
+- Modules tab now states the plan: a 32 bit WebView engine build, then an automatic build and release workflow for the WebView module
+
+### Changed
+- Module versions and download links moved to WebView v2.2.1 and microG v3.1.5 on the modules tab, the welcome tab and the projects tab
+- microG module card rewritten around what v3.1.5 changes rather than v3.1.4
+- Modules tab intro and the projects tab entry now describe the modules as the two the system needs, rather than as automation of build steps
+
 ## July 30, 2026
 
 ### Added
@@ -10,7 +21,6 @@
 - DresTermuxAI link repointed at The DresOS Foundation, which is where it now lives
 - Versions brought current everywhere: DresSecureComms 1.8.0 to 1.8.1 and microG v3.1.3 to v3.1.4, including the module download link and the module card description
 - microG module card no longer lists DroidGuard Helper, as microG folded it into GmsCore upstream and it is not bundled
-- WebView module requirements corrected from Magisk 29.0 and arm64 to Magisk 24.0 and arm or arm64, matching the module README, both on the module card and in the June 19 announcement
 - Terms of service privacy section now states that file scanning uploads a file only when you choose to send that one file, since the app can now do that
 - The retired defensive app suite wording replaced in the Welcome and DresOS Android tabs
 - Distro tab and the Welcome tab now say the same thing about when the distro build starts
@@ -93,7 +103,7 @@ Updated our terms of service to fit within the current Dres ecosystem, updated t
 - AOSmium WebView module card updated from v1.0.0 to v2.1.0:
   - Description rewritten to reflect new activation pipeline (static RRO + systemless bind mount + cmd webviewupdate, with dumpsys verification)
   - Removed references to pm install, Magisk .replace files, and manual selection in Developer Options
-  - Added requirements line (Magisk 24.0+, Android 10-15, arm/arm64)
+  - Added a requirements line
 - Welcome section "What we do" bullet updated: now reads "Current release: AOSmium WebView v2.1.0. Next module in development: MicroG (dresosmicrog)."
 - GitHub Projects section: DresOS-Magisk-Modules description updated from "First release: AOSmium WebView v1.0.0" to "Current release: AOSmium WebView v2.1.0. MicroG module in development."
 
