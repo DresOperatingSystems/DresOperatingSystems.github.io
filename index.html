@@ -55,8 +55,8 @@
     <div class="card">
       <ul>
         <li><strong>DresOS Android</strong> - A complete guide to build your own fully private, deGoogled Android system using TWRP, Magisk, our own microG and WebView modules, and the FOSS apps that replace everything Google takes out</li>
-        <li><strong>Magisk Modules</strong> - 2 Magisk Modules we built for our operating system. They are DresOS WebView v2.2.1 and DresOS microG v3.1.5.</li>
-        <li><strong>DresSecureComms</strong> - Our own in house FOSS app. Private SMS and MMS with optional AES-256-GCM encryption, a full default dialer, and an encrypted contacts vault. Now at v1.8.1 and available on IzzyOnDroid.</li>
+        <li><strong>Magisk Modules</strong> - 2 Magisk Modules we built for our operating system. They are DresOS WebView v2.3.2 and DresOS microG v3.1.7.</li>
+        <li><strong>DresSecureComms</strong> - Our own in house FOSS app. Private SMS and MMS with optional AES-256-GCM encryption, a full default dialer, and an encrypted contacts vault. Now at v1.8.2 and available on IzzyOnDroid.</li>
         <li><strong>DresOS: The Defensive Security Distro</strong> - Our upcoming Linux defensive security distribution. The build starts after a short break, targeting late 2026 into early 2027</li>
         <li><strong>Open Source Tools</strong> - Kali Linux tools and Android utilities, all on GitHub</li>
       </ul>
@@ -74,6 +74,15 @@
 
   <section class="tab-panel" id="tab-updates">
     <h2>Updates</h2>
+
+    <article class="card">
+      <h3>August 4, 2026 - The Modules Are Complete: microG v3.1.7, WebView v2.3.2, and Both Now Self-Maintaining</h3>
+      <p>Over the past couple of days we pushed the last manual patches to both Magisk modules, and from our end they are now complete. From here they keep themselves current. A GitHub Action runs every week, pulls the newest version of everything the modules carry straight from its original source, including our own DresOS WebView engine from its own repository, checks each one against its pinned signing key, then rebuilds the module, bumps the version and publishes the new release by itself. Nobody has to rebuild them by hand anymore, and the new releases come through the same way they always have. This is something we planned for a long time, to switch on once the modules were finished, so that keeping them current stops being a weekly job and that time can go into the rest of the organisation instead.</p>
+      <p><strong>Where that leaves the system.</strong> With the build guide refined, both modules patched and now maintaining themselves, and the WebView engine tracking Cromite's latest, three of the four parts of the DresOS Android system are solid and only need keeping current from everything we can see. The last part is DresSecureComms, and the next couple of weeks are tunnel vision on bringing it up to the same level as the other three. Alongside that we will keep pushing engine updates to bring the WebView to completion and keep refining the parts that are already done. This is us holding to our word: every part of the system stays updated and maintained, not shipped and forgotten.</p>
+      <p><strong>The WebView engine, honestly.</strong> The newer engine we put out caused pages to crash inside some apps, so we have reverted to the previous engine and there should be no more browser problems. We tried to take a shortcut to build the new one and it did not work out, which is simply how you learn what works and what does not. A proper updated engine is coming, but not this week. The current workload is full with finishing DresSecureComms and getting some bug bounty work going to bring in funding for the organisation's future.</p>
+      <p><strong>After that.</strong> Once DresSecureComms is where it needs to be, the whole system is at the stage of simply being kept maintained, and from then on we only push an update when something major genuinely needs changing in one of the four parts. Over the next couple of months it is looking promising that our Linux distribution project run begins, with a roadmap and a full plan released right here on the website, so keep an eye out for it. There may also be one last module before then, one that gets around the app installation restriction Google brings in this September. That one is not part of the Android system, just a bonus for the community.</p>
+      <p>To everyone who has used our projects, tested them on their devices, sent in bug reports, or helped in any other way, thank you. This began as one person's dream and you are the reason it keeps becoming real. Let us keep building, and keep fighting to keep Android open.</p>
+    </article>
 
     <article class="card">
       <h3>August 1, 2026 - microG v3.1.5, WebView v2.2.1, and the Modules Now Update Themselves</h3>
@@ -223,7 +232,7 @@
     <h3>Released Modules</h3>
     <div class="module-grid">
       <div class="module-card">
-        <div class="module-id">dresoswv <span class="badge">v2.2.1</span></div>
+        <div class="module-id">dresoswv <span class="badge">v2.3.2</span></div>
         <div class="module-name">DresOS WebView</div>
         <div class="module-desc">
           Replaces Android's system WebView with DresOS WebView, a Chromium engine built from Cromite with Google services and telemetry stripped and Cromite's privacy and security hardening throughout. The system WebView is the browser engine used internally by hundreds of apps whenever they render web content. Google's version phones home on every render. This module replaces it in a single Magisk flash with DresOS's own engine, signed with the DresOS release key.
@@ -237,20 +246,20 @@
           After flashing: reboot, then verify with adb shell dumpsys webviewupdate. The active provider should be org.dresos.webview.
         </div>
         <div class="module-links">
-          <a href="https://github.com/The-DresOS-Foundation/DresOS-Magisk-Modules/releases/download/webview-v2.2.1/DresOS-WebView-v2_2_1.zip" target="_blank">Download</a>
+          <a href="https://github.com/The-DresOS-Foundation/DresOS-Magisk-Modules/releases/download/webview-v2.3.2/DresOS-WebView-v2_3_2.zip" target="_blank">Download</a>
           <a href="https://github.com/The-DresOS-Foundation/DresOS-Magisk-Modules/tree/main/webview" target="_blank">Source</a>
         </div>
       </div>
 
       <div class="module-card">
-        <div class="module-id">dresosmicrog <span class="badge">v3.1.5</span></div>
+        <div class="module-id">dresosmicrog <span class="badge">v3.1.7</span></div>
         <div class="module-name">DresOS microG</div>
         <div class="module-desc">
           Systemless microG suite as a single Magisk flash. Replaces Google Play Services without Google's proprietary code or servers. Ships the officially signed microG GmsCore 0.3.15, microG Companion (FakeStore at com.android.vending), microG GsfProxy, Aurora Store, and Aurora Services as privileged system apps under product, with a privapp permissions allowlist generated from the bundled manifests. DroidGuard is no longer a separate app, as microG folded it into GmsCore upstream.
           <br><br>
-          v3.1.5 keeps the same bootloop safe pure file overlay design: no Zygisk payload, no Xposed or LSPosed dependency in the module itself, and no boot time PackageManager work. It physically cannot bootloop the device and it coexists cleanly with the DresOS WebView module.
+          The module keeps the same bootloop safe pure file overlay design: no Zygisk payload, no Xposed or LSPosed dependency in the module itself, and no boot time PackageManager work. It physically cannot bootloop the device and it coexists cleanly with the DresOS WebView module.
           <br><br>
-          v3.1.5 is the release that makes the bundled apps keep themselves current. A weekly pipeline now checks GmsCore, the Companion, GsfProxy, Aurora Store and Aurora Services, and if any of them has moved it rebuilds the module, bumps the version and publishes the release on its own. Before this only a GmsCore change could trigger a refresh, so an Aurora update could sit unnoticed. Every bundled APK is now verified against a pinned signing key before it is staged, which previously only applied to the microG core.
+          The bundled apps now keep themselves current. A weekly pipeline checks GmsCore, the Companion, GsfProxy, Aurora Store and Aurora Services, and if any of them has moved it rebuilds the module, bumps the version and publishes the release on its own. Before this only a GmsCore change could trigger a refresh, so an Aurora update could sit unnoticed. Every bundled APK is now verified against a pinned signing key before it is staged, which previously only applied to the microG core.
           <br><br>
           v3.1.4 fixes two real bugs found from a user report on a Samsung J600F. On a stock device where Play Services had updated itself, the module only masked the first copy it found, so the copy in the system partition kept winning and every Google dependent app crash looped. It now masks every copy it finds. Because a Magisk module cannot touch the data partition at all, it also detects that case up front and stops before changing anything, telling you to uninstall the Play Services, Play Store and Services Framework updates, clear their data and reboot before flashing. The second fix is Aurora Services, which could not install apps because its allowlist was missing two permissions; the allowlist generator now reads every bundled APK rather than just the two core ones.
           <br><br>
@@ -263,7 +272,7 @@
           <strong>Requirements:</strong> Magisk, KernelSU, or APatch. Android 8.0 through 16. Any ABI. The module bundles no Zygisk or Xposed framework; signature spoofing comes from the ROM where supported, otherwise follow the version aware guidance above.
         </div>
         <div class="module-links">
-          <a href="https://github.com/The-DresOS-Foundation/DresOS-Magisk-Modules/releases/download/microg-v3.1.5/DresOS-microG-v3_1_5.zip" target="_blank">Download</a>
+          <a href="https://github.com/The-DresOS-Foundation/DresOS-Magisk-Modules/releases/download/microg-v3.1.7/DresOS-microG-v3_1_7.zip" target="_blank">Download</a>
           <a href="https://github.com/The-DresOS-Foundation/DresOS-Magisk-Modules/tree/main/microg" target="_blank">Source</a>
         </div>
       </div>
@@ -463,9 +472,9 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
     <h3>DresOS Android</h3>
     <div class="card">
       <ul>
-        <li><a href="https://github.com/The-DresOS-Foundation/DresOS-The-Android-Defensive-Security-System" target="_blank">DresOS-The-Android-Defensive-Security-System</a> - The complete unified DresOS Android guide: DeGoogling, operational security, the Magisk modules, the app and core component list, security architecture, and changelog. (29 stars)</li>
-        <li><a href="https://github.com/The-DresOS-Foundation/DresOS-Magisk-Modules" target="_blank">DresOS-Magisk-Modules</a> - The two Magisk modules the DresOS system needs: our microG suite and our system WebView engine. Current releases: DresOS WebView v2.2.1 and DresOS microG v3.1.5. (Shell, 18 stars)</li>
-        <li><a href="https://github.com/The-DresOS-Foundation/DresOS-WebView" target="_blank">DresOS-WebView</a> - The DresOS WebView engine itself, our Cromite based hardened Chromium build with Google services and telemetry stripped, signed with our own release key. (Smali, 7 stars)</li>
+        <li><a href="https://github.com/The-DresOS-Foundation/DresOS-The-Android-Defensive-Security-System" target="_blank">DresOS-The-Android-Defensive-Security-System</a> - The complete unified DresOS Android guide: DeGoogling, operational security, the Magisk modules, the app and core component list, security architecture, and changelog. (30 stars)</li>
+        <li><a href="https://github.com/The-DresOS-Foundation/DresOS-Magisk-Modules" target="_blank">DresOS-Magisk-Modules</a> - The two Magisk modules the DresOS system needs: our microG suite and our system WebView engine. Current releases: DresOS WebView v2.3.2 and DresOS microG v3.1.7. (Shell, 19 stars)</li>
+        <li><a href="https://github.com/The-DresOS-Foundation/DresOS-WebView" target="_blank">DresOS-WebView</a> - The DresOS WebView engine itself, our Cromite based hardened Chromium build with Google services and telemetry stripped, signed with our own release key. (Smali, 8 stars)</li>
         <li><a href="https://github.com/DresOperatingSystems/Android-Degoogling" target="_blank">Android-Degoogling</a> - The original rooted degoogling guide, now merged into the unified DresOS guide. (Archived, 11 stars)</li>
         <li><a href="https://github.com/DresOperatingSystems/Android-opsec" target="_blank">Android-opsec</a> - The original on device OPSEC guide, now merged into the unified DresOS guide. (Archived, 6 stars)</li>
       </ul>
@@ -482,8 +491,8 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
     <h3>Other Projects</h3>
     <div class="card">
       <ul>
-        <li><a href="https://github.com/The-DresOS-Foundation/DresTermuxAI" target="_blank">DresTermuxAI</a> - AI assistant for Termux with coding assistant abilities. (Archived, Python, 7 stars)</li>
-        <li><a href="https://github.com/DresOperatingSystems/DresSecureComms" target="_blank">DresSecureComms</a> - The DresOS secure communications app. Private SMS and MMS with per contact AES-256-GCM encryption, a full default dialer, on device spam and scam call screening, an encrypted contacts vault, and VirusTotal link, file and app scanning. On IzzyOnDroid. (Kotlin, 23 stars)</li>
+        <li><a href="https://github.com/The-DresOS-Foundation/DresTermuxAI" target="_blank">DresTermuxAI</a> - AI assistant for Termux with coding assistant abilities. (Archived, Python, 8 stars)</li>
+        <li><a href="https://github.com/DresOperatingSystems/DresSecureComms" target="_blank">DresSecureComms</a> - The DresOS secure communications app. Private SMS and MMS with per contact AES-256-GCM encryption, a full default dialer, on device spam and scam call screening, an encrypted contacts vault, and VirusTotal link, file and app scanning. On IzzyOnDroid. (Kotlin, 25 stars)</li>
         <li><a href="https://github.com/DresOperatingSystems/Docker-android" target="_blank">Docker-android</a> - A Docker like environment on mobile, for advanced users. (Archived, 4 stars)</li>
       </ul>
     </div>
