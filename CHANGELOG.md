@@ -1,3 +1,15 @@
+## August 9, 2026
+
+### Added
+- New update entry covering the DresSecureComms geo spoofer fix, the receiver and activity hardening, the fresh self hosted demo, and what is left to finish the app
+- Self hosted demo video on the welcome tab, recorded on the current build and served from the site itself
+
+### Changed
+- Replaced the Streamable demo embed with a self hosted video element pointing at dresos-demo.mp4
+- Welcome tab demo line now points at the self hosted video instead of the Ko-fi post, and the coming soon note is gone
+- Star counts refreshed: guide 34, DresSecureComms 29, DresOS WebView 9, DresTermuxAI 9, Android-opsec 7
+- WebView module moved to v2.3.3 on the modules tab and the projects tab, including the download link and the module card badge
+
 ## August 1, 2026
 
 ### Added
